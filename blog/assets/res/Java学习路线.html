@@ -1,0 +1,1385 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+  --mermaid-theme: night;
+}
+
+[lang='mermaid'] .label {
+  color: #333;
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.native-window #md-notification {
+    border: 1px solid #70717d;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 0.8;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+    opacity: 1;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active,
+.export-item.active,
+.export-items-list-control,
+.export-detail {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54 !important;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    backdrop-filter: blur(1px);
+}
+
+.clear-btn-icon {
+    top: 8px;
+}
+
+
+</style><title>Java学习路线</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=' first-line-indent'><h1 id='java-学习路线'><span>Java 学习路线</span></h1><blockquote><p><span>Java 学习路线一条龙版 by 程序员鱼皮</span></p></blockquote><p><span>💂 + 💻 = 👴🏽</span></p><p><span>建议先观看视频导读：</span><a href='https://www.bilibili.com/video/BV1Qf4y1K7ff/' target='_blank' class='url'>https://www.bilibili.com/video/BV1Qf4y1K7ff/</a></p><h2 id='大纲'><span>大纲</span></h2><p><img src="https://qiniuyun.code-nav.cn/img/image-20211127235325557.png" referrerpolicy="no-referrer" alt="image-20211127235325557"></p><h2 id='路线特点'><span>路线特点</span></h2><ol start='' ><li><span>最新，完整一条龙的大厂 Java 学习路线，从入门到入土</span></li><li><span>同时适用于想全面学习 / 快速求职的同学，可以根据符号来定制自己的专属学习路线</span></li><li><span>给出目标、学习建议、关键知识点、最优资源以及各类资源推荐（视频、书籍、文档、项目、工具等）</span></li><li><span>鱼皮自己是 Java 开发者，融入个人自学和从业的经历 + 思考，让路线有灵魂</span></li><li><span>划分阶段、更有计划，且在最后给出持续学习的方向、探索 Java 程序员发展的无限可能</span></li><li><span>完全开源，回馈社区，持续更新！</span></li></ol><p>&nbsp;</p><h2 id='符号表'><span>符号表</span></h2><p><span>可以通过路线知识点前的表情字符，根据自己的实际情况选择学习：</span></p><ul><li><span>🌕 所有同学必须学习！！！</span></li><li><span>🌖 非常急着找工作，才可不学；目标大厂，必须学习！</span></li><li><span>🌗 急着找工作的话，可不学；目标大厂，建议学习</span></li><li><span>🌘 时间充足的话，再去学</span></li><li><span>⭐ 表示推荐资源</span></li></ul><p>&nbsp;</p><h2 id='写在开头'><span>写在开头</span></h2><p><span>首先呢，我们要了解 Java 的应用场景和就业方向，看看和自己的学习目的是否一致。</span></p><p><span>目前，Java 由于其优秀的特性以及火爆的生态，岗位需求量大，是后台开发、安卓开发、大数据开发的主流编程语言，因此学习资源也很丰富，值得学习！</span></p><p><span>有关更多编程语言的选择，大家可以看我的视频了解：</span><a href='https://www.bilibili.com/video/BV1y3411r7pX/' target='_blank' class='url'>https://www.bilibili.com/video/BV1y3411r7pX/</a></p><p>&nbsp;</p><h2 id='阶段-0前期准备'><span>阶段 0：前期准备</span></h2><ol start='' ><li><p><span>准备好一款在线、随时随地写代码的工具，不用在本地去安装和配置，是初学者的好帮手。</span></p><ul><li><span>推荐网站 - 菜鸟工具：</span><a href='https://c.runoob.com/compile/10' target='_blank' class='url'>https://c.runoob.com/compile/10</a></li></ul></li><li><p><span>准备一款记笔记的软件，学编程的过程中老师的思路、自己遇到的问题、解决问题的方法、心得感悟、遇到的好资料，都要记下来哦，好记性不如烂笔头，可以帮助你事半功倍。</span></p><ul><li><span>推荐本地软件 Typora：</span><a href='https://www.typora.io/' target='_blank' class='url'>https://www.typora.io/</a><span>（线上可以用 xx 文档）</span></li><li><span>推荐使用 Markdown 语法编写，鱼皮教程：</span><a href='https://www.bilibili.com/video/BV1no4y1k7YT/' target='_blank' class='url'>https://www.bilibili.com/video/BV1no4y1k7YT/</a></li></ul></li><li><p><span>想学好编程，别背代码，要多写，把这句话刻到脑子里。</span></p></li><li><p><span>选视频和找资料的小技巧：多看评论区、多看隔壁评论区、不要看过期的视频。</span></p></li><li><p><span>如何访问 GitHub：</span><a href='https://mp.weixin.qq.com/s/uBFsuThsZ4kdkZgqfX12qA' target='_blank' class='url'>https://mp.weixin.qq.com/s/uBFsuThsZ4kdkZgqfX12qA</a><span>（上面有很多免费的编程学习资源、项目源码，程序员必备）</span></p></li></ol><p>&nbsp;</p><h2 id='阶段-1java-入门'><span>阶段 1：Java 入门</span></h2><h3 id='目标-1'><span>目标</span></h3><p><span>培养兴趣、快速上手，能运行和编写简单的 Java 程序。</span></p><p><span>学完本阶段后，可以试着用 Java 解决一些数学计算问题、编写图书管理系统等桌面端 GUI 程序，甚至是五子棋之类的小游戏。</span></p><p>&nbsp;</p><h3 id='🌕-java-编程基础45-天）'><span>🌕 Java 编程基础（45 天）</span></h3><h4 id='知识-1'><span>知识</span></h4><ul><li><p><span>Java 特点（看不懂没事，别背！）</span></p></li><li><p><span>环境搭建</span></p></li><li><p><span>IDEA 开发工具</span></p><ul><li><span>新建项目</span></li><li><span>运行调试</span></li><li><span>界面配置</span></li><li><span>插件管理</span></li></ul></li><li><p><strong><span>Java 基础语法</span></strong></p><ul><li><span>数据类型</span></li><li><span>流程控制</span></li></ul></li><li><p><span>数组</span></p></li><li><p><strong><span>面向对象</span></strong></p><ul><li><span>方法</span></li><li><span>重载</span></li><li><span>封装</span></li><li><span>继承</span></li><li><span>多态</span></li></ul></li><li><p><span>抽象类</span></p></li><li><p><span>接口</span></p></li><li><p><span>枚举</span></p></li><li><p><span>常用类</span></p><ul><li><span>String</span></li><li><span>日期时间</span></li></ul></li><li><p><span>集合类</span></p></li><li><p><span>泛型</span></p></li><li><p><span>注解</span></p></li><li><p><span>异常处理</span></p></li><li><p><span>多线程</span></p></li><li><p><span>IO 流</span></p></li><li><p><span>反射</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-1'><span>学习建议</span></h4><p><span>初学一门语言时，一定要持续学习，不能中断！</span></p><p><span>想要学好编程，一定要多敲代码！建议先跟着书上的例子敲一遍代码，然后试着自主编写代码，并完成课后练习。</span></p><p><span>不理解代码也没关系，可以学习 Debug 后，一行一行地打断点执行，查看程序的执行过程。千万不要觉得麻烦，养成习惯后真的能节省很多重复学习的时间。</span></p><p>&nbsp;</p><h4 id='经典面试题-1'><span>经典面试题</span></h4><ol start='' ><li><span>为什么重写 equals 还要重写 hashcode？</span></li><li><span>== 和 equals 比较的区别</span></li><li><span>为啥有时会出现 4.0 - 3.6 = 0.40000001 这种现象？</span></li><li><span>final 关键字的作用</span></li><li><span>介绍 Java 的集合类</span></li><li><span>ArrayList 和 LinkedList 的区别</span></li></ol><p>&nbsp;</p><h4 id='资源-1'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 韩顺平 - 零基础 30 天学会 Java：</span><a href='https://www.bilibili.com/video/BV1fh411y7R8' target='_blank' class='url'>https://www.bilibili.com/video/BV1fh411y7R8</a><span>（900 多集，顺序安排很合理，每个知识真正的打碎了，通俗、有示例、有实战、有思想）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>⭐ 菜鸟教程：</span><a href='https://www.runoob.com/java/java-tutorial.html' target='_blank' class='url'>https://www.runoob.com/java/java-tutorial.html</a><span>（可以在线练习）</span></li><li><span>廖雪峰 Java 教程：</span><a href='https://www.liaoxuefeng.com/wiki/1252599548343744' target='_blank' class='url'>https://www.liaoxuefeng.com/wiki/1252599548343744</a></li><li><span>IDEA 中文教程：</span><a href='https://github.com/judasn/IntelliJ-IDEA-Tutorial' target='_blank' class='url'>https://github.com/judasn/IntelliJ-IDEA-Tutorial</a></li><li><span>IDEA Mac 快捷键指南，地址：</span><a href='https://www.jianshu.com/p/454c71172c46' target='_blank' class='url'>https://www.jianshu.com/p/454c71172c46</a></li><li><span>IDEA Win 常用快捷键，地址：</span><a href='https://www.jianshu.com/p/5de7cca0fefc' target='_blank' class='url'>https://www.jianshu.com/p/5de7cca0fefc</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《Head First Java》</span></li></ul></li><li><p><span>在线游戏</span></p><ul><li><span>Codegym：</span><a href='https://codegym.cc/zh' target='_blank' class='url'>https://codegym.cc/zh</a><span>（玩玩前几关培养兴趣不错，但后面收费了）</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-java-83-天）'><span>🌖 Java 8（3 天）</span></h3><h4 id='知识-2'><span>知识</span></h4><ul><li><span>Stream API</span></li><li><span>Lambda 表达式</span></li><li><span>新日期时间 API</span></li><li><span>接口默认方法</span></li></ul><p>&nbsp;</p><h4 id='学习建议-2'><span>学习建议</span></h4><p><span>Java 8 是如今企业开发中最主流的 Java 稳定版本，在这个版本出现了很多实用的新特性，虽然面试考点不多，但能够提升编程效率，建议学习。</span></p><p>&nbsp;</p><h4 id='经典面试题-2'><span>经典面试题</span></h4><ol start='' ><li><span>java 8 有哪些新特性？</span></li><li><span>HashMap 在 jdk 1.7 和 1.8 的区别？</span></li></ol><p>&nbsp;</p><h4 id='资源-2'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 宋红康 - 全网最全Java零基础入门教程：</span><a href='https://www.bilibili.com/video/BV1Kb411W75N' target='_blank' class='url'>https://www.bilibili.com/video/BV1Kb411W75N</a><span>（只看 Java 8 部分即可）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>⭐ 菜鸟教程：</span><a href='https://www.runoob.com/java/java8-new-features.html' target='_blank' class='url'>https://www.runoob.com/java/java8-new-features.html</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《Java 8 实战》</span></li></ul></li><li><p><span>工具</span></p><ul><li><span>⭐ 在线编写运行  Java 8：</span><a href='https://www.tutorialspoint.com/compile_java8_online.php' target='_blank' class='url'>https://www.tutorialspoint.com/compile_java8_online.php</a></li></ul></li><li><p><span>其他</span></p><ul><li><span>Java 8 小代码片段：</span><a href='https://github.com/biezhi/30-seconds-of-java8' target='_blank' class='url'>https://github.com/biezhi/30-seconds-of-java8</a></li></ul></li></ul><p>&nbsp;</p><h3 id='练手项目-1'><span>练手项目</span></h3><ul><li><span>Java 实现简单计算器：</span><a href='https://www.lanqiao.cn/courses/185' target='_blank' class='url'>https://www.lanqiao.cn/courses/185</a></li><li><span>Eclipse 实现 Java 编辑器：</span><a href='https://www.lanqiao.cn/courses/287' target='_blank' class='url'>https://www.lanqiao.cn/courses/287</a></li><li><span>一本糊涂账：</span><a href='https://how2j.cn/module/104.html' target='_blank' class='url'>https://how2j.cn/module/104.html</a></li><li><span>Java 五子棋：</span><a href='https://blog.csdn.net/cnlht/article/details/8176130' target='_blank' class='url'>https://blog.csdn.net/cnlht/article/details/8176130</a></li><li><span>Java 中国象棋：</span><a href='https://blog.csdn.net/cnlht/article/details/8205733' target='_blank' class='url'>https://blog.csdn.net/cnlht/article/details/8205733</a></li><li><span>JAVA GUI 图书馆管理系统：</span><a href='https://github.com/uboger/LibraryManager' target='_blank' class='url'>https://github.com/uboger/LibraryManager</a></li><li><span>JAVA 坦克大战小游戏：</span><a href='https://github.com/wangzhengyi/TankWar' target='_blank' class='url'>https://github.com/wangzhengyi/TankWar</a></li><li><span>Swing 编写的俄罗斯方块：</span><a href='https://github.com/HelloClyde/Tetris-Swing' target='_blank' class='url'>https://github.com/HelloClyde/Tetris-Swing</a></li><li><span>小小记账本：</span><a href='https://github.com/xenv/SmallAccount' target='_blank' class='url'>https://github.com/xenv/SmallAccount</a><span>（适合了解数据库的同学）</span></li></ul><p>&nbsp;</p><h3 id='尾声-1'><span>尾声</span></h3><p><span>学完了 Java 基础后，有些同学会感到迷茫了啊，感觉好像啥也做不出来，不知道下一步做什么，我这一身的本领该如何施展啊？</span></p><p><span>不要慌，也不要急着去学新技术，接下来我们要多用 Java 来写代码了，巩固基础，但是写什么呢？</span></p><p><span>当然是数据结构和算法！</span></p><p>&nbsp;</p><h2 id='阶段-2巩固基础'><span>阶段 2：巩固基础</span></h2><h3 id='目标-2'><span>目标</span></h3><p><span>想学好编程，计算机基础知识要学好。</span></p><p><span>比如算法，是程序员的灵魂。学好算法有助于我们理解程序、开拓思路，因此也是很多公司面试时考察的关键，在找工作前，还是要刷个上百道算法题目的。</span></p><p><span>我们这个阶段的目标是：熟练使用 Java 语言来编写程序，巩固 Java 基础。（那直接用 Java 来写算法题目，一举两得，岂不美哉？）</span></p><p><span>此外，建议大家利用零碎时间多去了解 </span><strong><span>计算机基础知识</span></strong><span> ，比如操作系统、计算机网络等，对你后面学习开发框架之类的知识都有帮助。</span></p><p>&nbsp;</p><h3 id='java-基础30-天）'><span>Java 基础（30 天）</span></h3><h4 id='学习建议-3'><span>学习建议</span></h4><p><span>建议大家去阅读 《Java 核心技术卷 1》，这本书堪称经典，是帮助你复习巩固  Java 的不二之选，其中图形界面章节可以选择不看。</span></p><p><span>之后可以刷牛客的 Java 练习题，检验自己的水平，我当时刷了两遍 1000 题（每天 30 题，1 个月也就刷完了，二刷会更快！）。虽然都是选择题，但能学到很多 Java 语言的特性、避免写代码时容易犯的错误。</span></p><p><span>如果你时间不够，只是想快速找到工作，那么本章节甚至可以完全跳过，后面慢慢弥补即可。</span></p><p>&nbsp;</p><h4 id='资源-3'><span>资源</span></h4><ul><li><p><span>书籍</span></p><ul><li><span>⭐《Java 核心技术卷 1》</span></li></ul></li><li><p><span>练习</span></p><ul><li><span>⭐ 牛客题库：</span><a href='https://www.nowcoder.com/intelligentTest' target='_blank' class='url'>https://www.nowcoder.com/intelligentTest</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-数据结构与算法'><span>🌖 数据结构与算法</span></h3><h4 id='知识-3'><span>知识</span></h4><ul><li><p><strong><span>时间 / 空间复杂度分析</span></strong></p></li><li><p><span>数据结构</span></p><ul><li><p><span>数组</span></p></li><li><p><span>字符串</span></p></li><li><p><span>队列</span></p></li><li><p><span>栈</span></p></li><li><p><span>链表</span></p></li><li><p><span>集合</span></p></li><li><p><span>哈希表</span></p></li><li><p><span>树</span></p><ul><li><span>二叉树</span></li><li><span>多叉树</span></li><li><span>字典树</span></li></ul></li></ul></li><li><p><span>算法</span></p><ul><li><span>排序</span></li><li><span>双指针</span></li><li><span>查找</span></li><li><span>分治</span></li><li><span>动态规划</span></li><li><span>递归</span></li><li><span>回溯</span></li><li><span>贪心</span></li><li><span>位运算</span></li><li><span>DFS</span></li><li><span>BFS</span></li><li><span>图</span></li></ul></li></ul><p>&nbsp;</p><h4 id='学习建议-4'><span>学习建议</span></h4><p><span>学算法一定要多思考、多练习！！！</span></p><p><span>在复习 Java、巩固基础的过程中，每天可以坚持用 Java 做 2 - 3 道算法题目。</span></p><p><span>不用担心看不懂，直接进入 LeetCode 学习板块 LeetBook，提供了免费的教程，文字、图解、动画讲算法、在线练习应有尽有，从 0 开始，跟着学习基础知识、跟着教程刷一些同类题目，培养算法思路。</span></p><p><span>之后再由简单到复杂、由通过率高到低，自主刷题，多看题解，举一反三。一定要把自己做过的每道题目代码都自行保存好，定期复习。时间足够的话，也可以试着自己写写题解，在网上分享一下自己的刷题思路，找到自己坚持的动力。</span></p><p><span>有条件的朋友也可以试着参与竞赛，没什么门槛，可以帮助你集中精神，而且周赛的题目还是挺友好的~</span></p><p>&nbsp;</p><h4 id='经典面试题-3'><span>经典面试题</span></h4><ul><li><span>LeetCode 精选 100 道：</span><a href='https://leetcode-cn.com/problem-list/2cktkvj/' target='_blank' class='url'>https://leetcode-cn.com/problem-list/2cktkvj/</a></li><li><span>LeetCode 精选算法 200 题：</span><a href='https://leetcode-cn.com/problem-list/qg88wci/' target='_blank' class='url'>https://leetcode-cn.com/problem-list/qg88wci/</a></li></ul><p>&nbsp;</p><h4 id='资源-4'><span>资源</span></h4><ul><li><p><span>文章</span></p><ul><li><span>⭐ 刷了 1000 多道算法题，一点心得：</span><a href='https://t.1yb.co/oT9q' target='_blank' class='url'>https://t.1yb.co/oT9q</a><span>（鱼皮原创）</span></li></ul></li><li><p><span>在线教程</span></p><ul><li><span>⭐ LeetCode LeetBook：</span><a href='https://leetcode-cn.com/leetbook/' target='_blank' class='url'>https://leetcode-cn.com/leetbook/</a></li></ul></li><li><p><span>在线刷题</span></p><ul><li><span>⭐ LeetCode：</span><a href='https://leetcode-cn.com/' target='_blank' class='url'>https://leetcode-cn.com/</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>⭐《小灰的漫画算法》</span></li><li><span>⭐《剑指 Offer》</span></li><li><span>《程序员代码面试指南》</span></li><li><span>图解算法数据结构：</span><a href='https://leetcode-cn.com/leetbook/detail/illustration-of-algorithm/' target='_blank' class='url'>https://leetcode-cn.com/leetbook/detail/illustration-of-algorithm/</a></li><li><span>LeetCode 101（C++）：</span><a href='https://github.com/changgyhub/leetcode_101' target='_blank' class='url'>https://github.com/changgyhub/leetcode_101</a></li><li><span>LeetCode 题解（C++）：</span><a href='https://github.com/soulmachine/leetcode' target='_blank' class='url'>https://github.com/soulmachine/leetcode</a></li><li><span>LeetCode Cookbook（Go 语言）：</span><a href='https://github.com/halfrost/LeetCode-Go' target='_blank' class='url'>https://github.com/halfrost/LeetCode-Go</a></li></ul></li><li><p><span>视频</span></p><ul><li><span>尚硅谷 Java 数据结构与算法：</span><a href='https://www.bilibili.com/video/BV1E4411H73v' target='_blank' class='url'>https://www.bilibili.com/video/BV1E4411H73v</a><span>（难度比面试的要求大一些，适合希望更全面学习的朋友）</span></li><li><span>Leetcode 真题解析：</span><a href='https://www.bilibili.com/video/BV1a54y1b74k' target='_blank' class='url'>https://www.bilibili.com/video/BV1a54y1b74k</a></li></ul></li><li><p><span>工具</span></p><ul><li><span>VisuAlgo 数据结构和算法动态可视化：</span><a href='https://visualgo.net/zh' target='_blank' class='url'>https://visualgo.net/zh</a></li><li><span>数据结构可视化：</span><a href='https://www.cs.usfca.edu/~galles/visualization/Algorithms.html' target='_blank' class='url'>https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></li><li><span>RegExr：</span><a href='https://www.code-nav.cn/rd/?rid=79550af2601114e9012110711798772b' target='_blank' class='url'>https://www.code-nav.cn/rd/?rid=79550af2601114e9012110711798772b</a><span>（学习、创建和测试正则表达式的在线可视化工具）</span></li></ul></li><li><p><span>网站</span></p><ul><li><span>五分钟学算法：</span><a href='https://www.cxyxiaowu.com/' target='_blank' class='url'>https://www.cxyxiaowu.com/</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌘-计算机导论'><span>🌘 计算机导论</span></h3><h4 id='知识-4'><span>知识</span></h4><ul><li><span>计算机发展历史</span></li><li><span>计算机应用领域</span></li><li><span>计算机发展方向</span></li><li><span>计算机基本组成</span></li><li><span>二进制</span></li><li><span>编程语言发展</span></li></ul><p>&nbsp;</p><h4 id='学习建议-5'><span>学习建议</span></h4><p><span>大学计算机专业的同学一般刚开学就会上这门课，虽说学习它并不会直接提高你的编程技能，但能够让你更了解计算机和编程，从而在一定程度上帮助你培养学习兴趣、确定学习方向。</span></p><p><span>自学的话，不用刻意去学习计算机导论，而是可以通过看视频、阅读课外读物的方式慢慢地了解计算机的故事。</span></p><p>&nbsp;</p><h4 id='资源-5'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>《计算机科学速成课》：</span><a href='https://www.bilibili.com/video/BV1EW411u7th' target='_blank' class='url'>https://www.bilibili.com/video/BV1EW411u7th</a><span>（从底层到上层的计算机知识科普，强烈推荐）</span></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《半小时漫画计算机》</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-操作系统'><span>🌖 操作系统</span></h3><h4 id='知识-5'><span>知识</span></h4><ul><li><span>操作系统的组成</span></li><li><span>进程、线程</span></li><li><span>进程 / 线程间通讯方式</span></li><li><span>进程调度算法</span></li><li><span>进程 / 线程同步方式</span></li><li><span>进程 / 线程状态</span></li><li><span>死锁</span></li><li><span>内存管理</span></li><li><span>局部性原理</span></li></ul><p>&nbsp;</p><h4 id='学习建议-6'><span>学习建议</span></h4><p><span>说实话，操作系统这一块知识挺枯燥的。你说说我现在项目都不会做，你又让我看这些理论，是不是想让我头秃？</span></p><p><span>我的建议是，可以先利用课余时间看一些网课或者有趣的课外书，对一些操作系统的概念先有个大致的印象，比如进程、线程、死锁，等后面有时间了再系统学习、等到找工作了再去背相关八股文。</span></p><p><span>还在校园就跟着学校的进度学习就成，自学的话可以看下《清华操作系统原理》视频，有实力的小伙伴，能看懂大黑书就更好了，但如果看不懂也别担心，这并不影响你后续知识的学习。</span></p><p>&nbsp;</p><h4 id='经典面试题-4'><span>经典面试题</span></h4><ol start='' ><li><span>什么是死锁？死锁产生的条件？</span></li><li><span>线程有哪几种状态？</span></li><li><span>有哪些进程调度算法？</span></li><li><span>什么是缓冲区溢出？</span></li></ol><p>&nbsp;</p><h4 id='资源-6'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>《清华操作系统原理》：</span><a href='https://www.bilibili.com/video/BV1uW411f72n' target='_blank' class='url'>https://www.bilibili.com/video/BV1uW411f72n</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《编码》</span></li><li><span>《30天自制操作系统》</span></li><li><span>《现代操作系统》（难度较大，不推荐新手看）</span></li><li><span>《深入理解计算机系统》（难度较大，不推荐新手看）</span></li><li><span>《 自己动手写操作系统》（国产好书，网上可以下载）</span></li></ul></li><li><p><span>大学课件</span></p><ul><li><span>浙大操作系统：</span><a href='https://github.com/QSCTech/zju-icicles' target='_blank' class='url'>https://github.com/QSCTech/zju-icicles</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-计算机网络'><span>🌖 计算机网络</span></h3><h4 id='知识-6'><span>知识</span></h4><ul><li><span>网络分层模型</span></li><li><span>网络传输过程</span></li><li><span>IP、端口</span></li><li><span>HTTP / HTTPS 协议</span></li><li><span>UDP / TCP 协议</span></li><li><span>ARP 地址解析协议</span></li><li><span>网络安全</span></li><li><span>DNS 域名解析</span></li></ul><p>&nbsp;</p><h4 id='学习建议-7'><span>学习建议</span></h4><p><span>很多学习 Java 开发的同学最后都是从事 </span><strong><span>后端开发</span></strong><span> 的工作，而计算机网络知识是后端开发的重点。</span></p><p><span>和操作系统一样，自学网络可能会很枯燥，建议先看有趣的课外书，比如《图解 HTTP》；或者有趣的视频，比如《计算机网络微课堂》。后面要找工作面试前，再重点去背一些八股文就好了。还在学校的同学好好上课一般就没问题。</span></p><p><span>学习基础能帮助自己今后发展更稳定，且更容易接受新知识，所以请不要相信基础无用论。</span></p><p>&nbsp;</p><h4 id='经典面试题-5'><span>经典面试题</span></h4><ol start='' ><li><span>计算机网络各层有哪些协议？</span></li><li><span>TCP 和 UDP 协议的区别？</span></li><li><span>TCP 为什么需要三次握手和四次挥手？</span></li><li><span>HTTP 和 HTTPS 协议的区别？</span></li></ol><p>&nbsp;</p><h4 id='资源-7'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>《计算机网络微课堂》：</span><a href='https://www.bilibili.com/video/BV1c4411d7jb' target='_blank' class='url'>https://www.bilibili.com/video/BV1c4411d7jb</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>⭐《图解 HTTP》</span></li><li><span>《网络是怎样连接的》</span></li><li><span>⭐《图解 TCP / IP》</span></li></ul></li><li><p><span>大学课件</span></p><ul><li><span>浙大计算机网络基础：</span><a href='https://github.com/QSCTech/zju-icicles' target='_blank' class='url'>https://github.com/QSCTech/zju-icicles</a></li></ul></li></ul><p>&nbsp;</p><h3 id='尾声-2'><span>尾声</span></h3><p><span>巩固基础要花至少 1 个月的时间，当你读完《Java 核心技术卷1》并且不用查询文档也能熟练地用 Java 做题时，就可以接着往下了。</span></p><p>&nbsp;</p><h2 id='阶段-3java-企业开发基础'><span>阶段 3：Java 企业开发基础</span></h2><h3 id='目标-3'><span>目标</span></h3><p><span>面向薪资编程，学习实际后台开发工作要用的基础技术和框架，并能 </span><strong><span>独立</span></strong><span> 做出一个具有完整功能的 Java Web 项目。</span></p><p><span>学完这个阶段后，你应该已经能独立开发出大多数常见的后台系统了，比如各种管理系统、商城系统等。</span></p><p>&nbsp;</p><h3 id='🌕-mysql-数据库7-天）'><span>🌕 MySQL 数据库（7 天）</span></h3><p><span>企业中大部分业务数据都是用关系型数据库存储的，因此数据库是后台开发同学的必备技能，其中 MySQL 数据库是目前的主流，也是面试时的重点。</span></p><p>&nbsp;</p><h4 id='知识-7'><span>知识</span></h4><ul><li><span>基本概念</span></li><li><span>MySQL 搭建</span></li><li><span>SQL 语句编写</span></li><li><span>约束</span></li><li><span>索引</span></li><li><span>事务</span></li><li><span>锁机制</span></li><li><span>设计数据库表</span></li><li><span>性能优化</span></li></ul><p>&nbsp;</p><h4 id='学习建议-8'><span>学习建议</span></h4><p><span>其中，</span><strong><span>SQL 语句编写</span></strong><span> 和 </span><strong><span>设计数据库表</span></strong><span> 这两个能力一定要有！</span></p><p><span>比如让你做一个学生管理系统，你要能想到需要哪些表，比如学生表、班级表；每个表需要哪些字段、字段类型。</span></p><p><span>这就要求大家多写 SQL、多根据实际的业务场景去练习设计能力。</span></p><p>&nbsp;</p><h4 id='经典面试题-6'><span>经典面试题</span></h4><ol start='' ><li><span>MySQL 索引的最左原则</span></li><li><span>InnoDB 和 MyIsam 引擎的区别？</span></li><li><span>有哪些优化数据库性能的方法？</span></li><li><span>如何定位慢查询？</span></li><li><span>MySQL 支持行锁还是表锁？分别有哪些优缺点？</span></li></ol><p>&nbsp;</p><h4 id='资源-8'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 老杜 - mysql入门基础 + 数据库实战：</span><a href='https://www.bilibili.com/video/BV1Vy4y1z7EX' target='_blank' class='url'>https://www.bilibili.com/video/BV1Vy4y1z7EX</a><span>（较新、内容相对精炼，有习题）</span></li><li><span>尚硅谷 - MySQL基础教程：</span><a href='https://www.bilibili.com/video/BV1xW411u7ax' target='_blank' class='url'>https://www.bilibili.com/video/BV1xW411u7ax</a><span>（小姐姐讲课，但感觉音质一般）</span></li></ul></li><li><p><span>在线练习</span></p><ul><li><span>⭐ SQL 自学网：</span><a href='http://xuesql.cn/' target='_blank' class='url'>http://xuesql.cn/</a></li><li><span>⭐ SQL 在线运行：</span><a href='https://www.bejson.com/runcode/sql/' target='_blank' class='url'>https://www.bejson.com/runcode/sql/</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>SQL - 菜鸟教程：</span><a href='https://www.runoob.com/sql/sql-tutorial.html' target='_blank' class='url'>https://www.runoob.com/sql/sql-tutorial.html</a></li><li><span>MySQL - 菜鸟教程：</span><a href='https://www.runoob.com/mysql/mysql-tutorial.html' target='_blank' class='url'>https://www.runoob.com/mysql/mysql-tutorial.html</a></li></ul></li><li><p><span>网站</span></p><ul><li><a href='https://www.code-nav.cn/rd/?rid=b00064a76012546b016e274a3724c5f0'><span>数据库大全</span></a><span>：果创云收录的各种数据库表设计</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌕-开发框架60-天）'><span>🌕 开发框架（60 天）</span></h3><p><span>Java 之所以能成为主流的企业开发语言，很大一部分原因是它完善的框架生态，用好框架，不仅能够大大提升开发效率，还能提高项目的稳定性、减少维护成本。</span></p><p><span>开发框架是后台开发工作中不可或缺的，也是面试考察的重点，一定要好好学！</span></p><p><span>不知道 Java 能做什么的朋友们，学完开发框架，就会有答案啦。</span></p><p><span>下面给大家推荐的都是企业中应用最多的主流开发框架，知识点比较零碎，就放在一起讲了。</span></p><p>&nbsp;</p><h4 id='知识-8'><span>知识</span></h4><h5 id='🌕-java-web'><span>🌕 Java Web</span></h5><ul><li><span>描述：Java 网页应用开发基础</span></li><li><span>一丢丢前端基础</span></li><li><span>XML</span></li><li><span>JSON</span></li><li><span>Servlet</span></li><li><span>Filter</span></li><li><span>Listener</span></li><li><span>JSP</span></li><li><span>JSTL</span></li><li><span>Cookie</span></li><li><span>Session</span></li></ul><p>&nbsp;</p><h5 id='🌕-spring-5'><span>🌕 Spring 5</span></h5><ul><li><span>描述：Java 轻量级应用框架</span></li><li><span>IOC</span></li><li><span>AOP</span></li><li><span>事务</span></li></ul><p>&nbsp;</p><h5 id='🌕-springmvc'><span>🌕 SpringMVC</span></h5><ul><li><span>描述：Java 轻量级 web 开发框架</span></li><li><span>什么是 MVC？</span></li><li><span>请求与响应</span></li><li><span>Restful API</span></li><li><span>拦截器</span></li><li><span>配置</span></li><li><span>执行过程</span></li></ul><p>&nbsp;</p><h5 id='🌕-mybatis'><span>🌕 MyBatis</span></h5><ul><li><span>描述：数据访问框架，操作数据库进行增删改查等操作</span></li><li><span>增删改查</span></li><li><span>全局配置</span></li><li><span>动态 SQL</span></li><li><span>缓存</span></li><li><span>和其他框架的整合</span></li><li><span>逆向工程</span></li></ul><p>&nbsp;</p><h5 id='🌗-mybatis-plus'><span>🌗 MyBatis Plus</span></h5><ul><li><span>描述：Mybatis 的增强工具，能够简化开发、提高效率</span></li><li><span>引入</span></li><li><span>通用 CRUD</span></li><li><span>条件构造器</span></li><li><span>代码生成器</span></li><li><span>插件扩展</span></li><li><span>自定义全局操作</span></li></ul><p>&nbsp;</p><h5 id='🌕-springboot-2'><span>🌕 SpringBoot 2</span></h5><ul><li><span>描述：简化 Spring 应用的初始搭建以及开发过程，提高效率</span></li><li><span>常用注解</span></li><li><span>资源整合</span></li><li><span>高级特性</span></li><li><span>本地热部署</span></li></ul><p>&nbsp;</p><h5 id='🌗-spring-security'><span>🌗 Spring Security</span></h5><ul><li><span>描述：Spring 的安全管理框架</span></li><li><span>用户认证</span></li><li><span>权限管理</span></li><li><span>相关技术：Shiro</span></li></ul><p>&nbsp;</p><h5 id='🌗-maven--gradle'><span>🌗 Maven / Gradle</span></h5><ul><li><span>描述：项目管理工具</span></li><li><span>构建</span></li><li><span>依赖管理</span></li><li><span>插件</span></li><li><span>配置</span></li><li><span>子父工程</span></li><li><span>多模块打包构建</span></li><li><span>Nexus 私服搭建</span></li></ul><p>&nbsp;</p><h4 id='学习建议-9'><span>学习建议</span></h4><p><span>由于技术较多，且框架之间存在一定的联系，因此建议大家看同一系列的视频教程（尚硅谷、狂神说等等都可以），以保证学习内容的连续以及体验上的一致。</span></p><p><span>学这些技术的时候，</span><strong><span>千万不能懒</span></strong><span> ！一定要多记笔记，并且跟着老师写代码。原理部分不要太过纠结，先以能跟着敲出代码、写出可运行的项目为主，有些东西做出来也能帮助你更好地理解理论。</span></p><p><span>学习顺序挺重要的，建议按我推荐的顺序学，不要一上手就学 Spring Boot。只有先学习下自己整合框架的方法，才能帮你理解 SpringBoot 解决的问题，感受到它的方便和高效。</span></p><p><span>Maven / Gradle 当成工具用就好，面试基本不问，跟着框架教程去用就行了，急着找工作的话，先不用花太多时间去深入学。大厂面试问这个的也不多。</span></p><p>&nbsp;</p><h4 id='经典面试题-7'><span>经典面试题</span></h4><ol start='' ><li><span>Spring 的 IOC 和 AOP 是什么，有哪些优点？</span></li><li><span>Spring 框架用到了哪些设计模式？</span></li><li><span>介绍 Spring Bean 的生命周期</span></li><li><span>MyBatis 如何实现延迟加载？</span></li><li><span>介绍 MyBatis 的多级缓存机制</span></li></ol><p>&nbsp;</p><h4 id='资源-9'><span>资源</span></h4><ul><li><p><span>视频（按顺序看）</span></p><ul><li><span>⭐ 尚硅谷最新版 JavaWeb 全套教程：</span><a href='https://www.bilibili.com/video/BV1Y7411K7zz' target='_blank' class='url'>https://www.bilibili.com/video/BV1Y7411K7zz</a><span>（前端部分最好也看下）</span></li><li><span>⭐ 尚硅谷 - Spring 5 框架最新版教程（idea版）：</span><a href='https://www.bilibili.com/video/BV1Vf4y127N5' target='_blank' class='url'>https://www.bilibili.com/video/BV1Vf4y127N5</a></li><li><span>⭐ 尚硅谷 - SpringMVC 2021 最新教程：</span><a href='https://www.bilibili.com/video/BV1Ry4y1574R' target='_blank' class='url'>https://www.bilibili.com/video/BV1Ry4y1574R</a></li><li><span>⭐ 尚硅谷 - MyBatis 实战教程全套完整版：</span><a href='https://www.bilibili.com/video/BV1mW411M737' target='_blank' class='url'>https://www.bilibili.com/video/BV1mW411M737</a></li><li><span>⭐ 尚硅谷 - MyBatisPlus 教程：</span><a href='https://www.bilibili.com/video/BV1Ds411E76Y' target='_blank' class='url'>https://www.bilibili.com/video/BV1Ds411E76Y</a></li><li><span>Maven 零基础入门教程：</span><a href='https://www.bilibili.com/video/BV1TW411g7hP' target='_blank' class='url'>https://www.bilibili.com/video/BV1TW411g7hP</a><span>（搞不懂 Maven 可以看看）</span></li><li><span>⭐ 雷丰阳 2021 版 SpringBoot2 零基础入门：</span><a href='https://www.bilibili.com/video/BV19K4y1L7MT' target='_blank' class='url'>https://www.bilibili.com/video/BV19K4y1L7MT</a></li><li><span>尚硅谷 - SpringSecurity 框架教程：</span><a href='https://www.bilibili.com/video/BV15a411A7kP' target='_blank' class='url'>https://www.bilibili.com/video/BV15a411A7kP</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌘-开发规范3-天）'><span>🌘 开发规范（3 天）</span></h3><p><span>开发不规范，同事两行泪。</span></p><p><span>开发规范是团队开发中必须遵守的，有利于提高项目的开发效率、降低维护成本。</span></p><p>&nbsp;</p><h4 id='知识-9'><span>知识</span></h4><ul><li><p><span>代码规范</span></p><ul><li><span>代码风格</span></li><li><span>命名</span></li><li><span>其他规则</span></li></ul></li><li><p><span>代码校验（CheckStyle）</span></p></li><li><p><span>提交规范</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-10'><span>学习建议</span></h4><p><span>有时间的话，简单过一遍大厂团队的代码规范手册就好了，以后做项目的时候能想起来的话就去使用，或者从书中、网上查规范文档，再去遵守。</span></p><p><span>项目做得多了，自然会养成好的习惯，不用刻意去记（毕竟每个团队规范也不完全相同，背了也没用）。也可以直接利用开发工具自带的一些代码检查插件，帮忙养成好的编码习惯。</span></p><p>&nbsp;</p><h4 id='资源-10'><span>资源</span></h4><ul><li><p><span>书籍</span></p><ul><li><span>⭐ 阿里巴巴 Java 开发手册：</span><a href='https://developer.aliyun.com/graph/java' target='_blank' class='url'>https://developer.aliyun.com/graph/java</a><span>（搜索《Java开发手册》）</span></li></ul></li><li><p><span>视频</span></p><ul><li><span>华山版《Java开发手册》独家讲解：</span><a href='https://developer.aliyun.com/live/1201' target='_blank' class='url'>https://developer.aliyun.com/live/1201</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>Google Java Style Guide：</span><a href='https://google.github.io/styleguide/javaguide.html' target='_blank' class='url'>https://google.github.io/styleguide/javaguide.html</a><span>（谷歌 Java 代码规范）</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌕-git3-天）'><span>🌕 Git（3 天）</span></h3><p><span>此前大家可能听说过 GitHub，一流的代码开源托管平台。</span></p><p><span>Git 和它可不一样，是一个版本控制工具，可以更好地管理和共享项目代码，比如把自己的代码传到 GitHub 上、或者从远程下载。</span></p><p><span>无论自己做项目、还是团队开发，Git 都是现在不可或缺的神器。</span></p><p>&nbsp;</p><h4 id='知识-10'><span>知识</span></h4><ul><li><span>区分 Git 和 GitHub</span></li><li><span>工作区</span></li><li><span>分支</span></li><li><span>代码提交、推送、拉取、回退、重置</span></li><li><span>分支操作</span></li><li><span>代码合并、解决冲突</span></li><li><span>标签</span></li><li><span>cherry-pick</span></li><li><span>Git Flow</span></li><li><span>相关技术：SVN（比较老）</span></li></ul><p>&nbsp;</p><h4 id='学习建议-11'><span>学习建议</span></h4><p><span>每个命令跟着敲一遍，有个大致的印象，会用即可。</span></p><p><span>建议平时大家可以多把自己的代码使用 Git 命令上传到 GitHub 上，用的多了自然就熟悉了。</span></p><p>&nbsp;</p><h4 id='经典面试题-8'><span>经典面试题</span></h4><ol start='' ><li><span>如何解决提交冲突？</span></li><li><span>提交不小心出现误操作，如何撤销？</span></li><li><span>什么是 Git Flow，它有什么好处？</span></li></ol><p>&nbsp;</p><h4 id='资源-11'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐【尚硅谷】5h打通Git全套教程丨2021最新IDEA版 </span><a href='https://www.bilibili.com/video/BV1vy4y1s7k6' target='_blank' class='url'>https://www.bilibili.com/video/BV1vy4y1s7k6</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>猴子都能懂的 Git 入门 </span><a href='https://backlog.com/git-tutorial/cn/' target='_blank' class='url'>https://backlog.com/git-tutorial/cn/</a></li><li><span>⭐ GitHub 漫游指南 </span><a href='https://github.phodal.com/' target='_blank' class='url'>https://github.phodal.com/</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>GitHub 官方文档：</span><a href='https://docs.github.com/cn' target='_blank' class='url'>https://docs.github.com/cn</a></li></ul></li><li><p><span>游戏</span></p><ul><li><span>Learning Git Branching：</span><a href='https://learngitbranching.js.org/?locale=zh_CN' target='_blank' class='url'>https://learngitbranching.js.org/?locale=zh_CN</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-linux10-天）'><span>🌖 Linux（10 天）</span></h3><p><span>企业中的很多前后台项目都是部署在 Linux 服务器上的，因此很有必要熟悉 Linux 的操作和脚本的编写。</span></p><p><span>后面学微服务、学架构都是在多台服务器操作，如果你不熟悉 Linux，会有点吃力。</span></p><p>&nbsp;</p><h4 id='知识-11'><span>知识</span></h4><ul><li><span>Linux 系统安装</span></li><li><span>环境变量</span></li><li><span>文件管理</span></li><li><span>用户管理</span></li><li><span>内存管理</span></li><li><span>磁盘管理</span></li><li><span>进程管理</span></li><li><span>网络管理</span></li><li><span>软件包管理</span></li><li><span>服务管理</span></li><li><span>日志管理</span></li><li><span>Linux 内核</span></li><li><strong><span>常用命令</span></strong></li><li><strong><span>常用环境搭建</span></strong></li><li><strong><span>Shell 脚本编程</span></strong></li><li><strong><span>VIM 的使用</span></strong></li></ul><p>&nbsp;</p><h4 id='学习建议-12'><span>学习建议</span></h4><p><span>多动手实践，建议自己购买一台云服务器，并且在本地搭建 Linux 虚拟机环境。</span></p><p><span>一定要自己从 0 开始手敲命令安装软件、部署服务，熟悉整个项目的上线流程。</span></p><p><span>每个命令至少要跟着敲一遍，了解它们的作用，并通过自然地练习，熟悉常用的 Linux 命令。</span></p><p><span>记不住没关系，用文档查就行了。</span></p><p><span>先会用，再理解。一般面试问的 Linux 题目也不会很难，面试前去背一下八股文就没什么问题，感兴趣的话可以去看看 Linux 内核设计。</span></p><p>&nbsp;</p><h4 id='经典面试题-9'><span>经典面试题</span></h4><ol start='' ><li><span>如何查看某个进程的运行状态？</span></li><li><span>如何在 Linux 上查看 2 G 的大文件？</span></li><li><span>Linux 软链接和硬链接的区别</span></li></ol><p>&nbsp;</p><h4 id='资源-12'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 2021 韩顺平 一周学会Linux </span><a href='https://www.bilibili.com/video/BV1Sv411r7vd' target='_blank' class='url'>https://www.bilibili.com/video/BV1Sv411r7vd</a><span>（基于 CentOS 7.6 版本较新）</span></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《鸟哥的 Linux 私房菜 —— 基础篇》</span><a href='http://cn.linux.vbird.org/linux_basic/linux_basic.php' target='_blank' class='url'>http://cn.linux.vbird.org/linux_basic/linux_basic.php</a><span>（经典）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>Linux 工具快速教程：</span><a href='https://linuxtools-rst.readthedocs.io' target='_blank' class='url'>https://linuxtools-rst.readthedocs.io</a><span>（基础、工具进阶、工具参考）</span></li></ul></li><li><p><span>实战</span></p><ul><li><span>⭐ 蓝桥云课 Linux 基础入门：</span><a href='https://www.lanqiao.cn/courses/1' target='_blank' class='url'>https://www.lanqiao.cn/courses/1</a></li><li><span>腾讯云动手实验室：</span><a href='https://cloud.tencent.com/developer/labs' target='_blank' class='url'>https://cloud.tencent.com/developer/labs</a></li><li><span>阿里云体验实验室：</span><a href='https://developer.aliyun.com/adc/labs/' target='_blank' class='url'>https://developer.aliyun.com/adc/labs/</a></li><li><span>阿里云知行实验室：</span><a href='https://start.aliyun.com/' target='_blank' class='url'>https://start.aliyun.com/</a></li><li><span>华为云沙箱实验室：</span><a href='https://lab.huaweicloud.com/' target='_blank' class='url'>https://lab.huaweicloud.com/</a></li></ul></li><li><p><span>社区</span></p><ul><li><span>Linux 中国：</span><a href='https://linux.cn/' target='_blank' class='url'>https://linux.cn/</a></li></ul></li><li><p><span>工具</span></p><ul><li><span>⭐ Linux 命令搜索：</span><a href='https://wangchujiang.com/linux-command' target='_blank' class='url'>https://wangchujiang.com/linux-command</a></li><li><span>Linux 命令大全手册：</span><a href='https://www.linuxcool.com/' target='_blank' class='url'>https://www.linuxcool.com/</a></li><li><span>Linux 命令示例：</span><a href='http://linux-commands-examples.com/' target='_blank' class='url'>http://linux-commands-examples.com/</a></li><li><span>宝塔 Linux 面板：</span><a href='https://www.bt.cn/' target='_blank' class='url'>https://www.bt.cn/</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌘-前端基础14-天）'><span>🌘 前端基础（14 天）</span></h3><p><span>虽然 Java 程序员面试时基本不会出现前端相关问题，但是在企业中，往往需要前后端程序员配合完成工作。会一些前端，不仅可以提高你们的协作效率，还能提高自己对整个项目的了解和掌控力，甚至能独立开发出一个完整项目！这点也是能给面试加分的。</span></p><p>&nbsp;</p><h4 id='知识-12'><span>知识</span></h4><ul><li><p><span>HTML</span></p></li><li><p><span>CSS</span></p></li><li><p><span>JavaScript</span></p><ul><li><span>Ajax</span></li></ul></li><li><p><span>Vue</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-13'><span>学习建议</span></h4><p><span>不需要学习太多的前端技术，熟悉下基础的前端三件套，了解前端是如何向后端发送请求来做数据交互的一般就够了。有时间的话可以学下 Vue ，是比较容易上手的主流前端开发框架，Vue + SpringBoot 还是很香的。</span></p><p>&nbsp;</p><h4 id='资源-13'><span>资源</span></h4><p><span>参见鱼皮原创的前端学习路线：</span><a href='https://mp.weixin.qq.com/s/HbzLEt6NOP9Is9F3GOnbUQ' target='_blank' class='url'>https://mp.weixin.qq.com/s/HbzLEt6NOP9Is9F3GOnbUQ</a></p><p>&nbsp;</p><h3 id='练手项目-2'><span>练手项目</span></h3><blockquote><p><span>更多请见本路线阶段 5：</span><a href='#项目源码50-套）'><span>项目源码（50 套）</span></a><span> 。</span></p></blockquote><p>&nbsp;</p><ul><li><span>HotelSystem：</span><a href='https://github.com/misterchaos/HotelSystem' target='_blank' class='url'>https://github.com/misterchaos/HotelSystem</a><span>（酒店管理系统 Java,tomcat,mysql,servlet,jsp实现，没有使用任何框架）</span></li><li><span>超市管理系统：</span><a href='https://github.com/zhanglei-workspace/shopping-management-system' target='_blank' class='url'>https://github.com/zhanglei-workspace/shopping-management-system</a></li><li><span>Mall4j：</span><a href='https://github.com/gz-yami/mall4j' target='_blank' class='url'>https://github.com/gz-yami/mall4j</a><span>（Spring Boot 电商系统）</span></li><li><span>newbee-mall：</span><a href='https://github.com/newbee-ltd/newbee-mall' target='_blank' class='url'>https://github.com/newbee-ltd/newbee-mall</a><span>（基于 Spring Boot 2.X 的全栈电商系统）</span></li><li><span>litemall：</span><a href='https://github.com/linlinjava/litemall' target='_blank' class='url'>https://github.com/linlinjava/litemall</a><span>（小商城系统，Spring Boot 后端 + Vue 管理员前端 + 微信小程序用户前端 + Vue 用户移动端）</span></li><li><span>forum-java：</span><a href='https://github.com/Qbian61/forum-java' target='_blank' class='url'>https://github.com/Qbian61/forum-java</a><span>（一款用 Java Spring Boot 实现的现代化社区系统）</span></li></ul><p>&nbsp;</p><h3 id='尾声-3'><span>尾声</span></h3><p><span>学完这个阶段的知识后，一定要再串起来回忆一遍，必须自己独立开发一个 Java Web 项目（量级可以不大，但你学过的技术尽可能地用上），能发布到 Linux 服务器上让其他小伙伴访问就更好了~</span></p><p><span>如果你只是对 Java 感兴趣、或者只是想试着自己开发后台，并不是想靠 Java 找工作的话，学到这里就可以了。可以把更多时间投入到你主方向的学习中。</span></p><p><span>但如果你是想找 Java 方向的工作，尤其是想进大厂的话，一定要继续努力，用心学习下个阶段的企业开发进阶知识。</span></p><p>&nbsp;</p><h2 id='阶段-4java-企业开发进阶'><span>阶段 4：Java 企业开发进阶</span></h2><h3 id='目标-4'><span>目标</span></h3><p><span>学习更多企业级开发技术和编程思想，能够结合多种技术，独立开发出架构合理的完整系统，</span><strong><span>解决实际问题</span></strong><span> 。</span></p><p><span>要了解为什么需要这个技术？什么时候用这个技术？某个需求该用哪些技术？</span></p><p><span>当然，这个阶段的内容有些过于丰富，不是所有的东西都要学，大家可以根据自己的实际情况（时间），有选择地学习。</span></p><p>&nbsp;</p><h3 id='🌘-软件工程'><span>🌘 软件工程</span></h3><p><span>软件开发和管理的一些概念、原则、技术、方法、工具和经验。</span></p><p>&nbsp;</p><h4 id='知识-13'><span>知识</span></h4><ul><li><p><span>软件的本质</span></p></li><li><p><span>软件特性</span></p></li><li><p><span>软件过程</span></p></li><li><p><span>软件开发原则</span></p><ul><li><span>开闭原则</span></li><li><span>里氏替换原则</span></li><li><span>依赖倒置原则</span></li><li><span>单一职责原则</span></li><li><span>接口隔离原则</span></li><li><span>迪米特法则</span></li></ul></li><li><p><span>软件过程模型</span></p></li><li><p><span>敏捷开发</span></p></li><li><p><span>软件开发模型</span></p></li><li><p><span>需求建模</span></p></li><li><p><span>软件设计</span></p></li><li><p><span>UML</span></p></li><li><p><span>体系结构设计</span></p></li><li><p><span>设计模式</span></p></li><li><p><span>软件质量管理</span></p></li><li><p><span>评审</span></p></li><li><p><span>软件质量保证</span></p></li><li><p><span>软件测试</span></p><ul><li><span>单元测试</span></li><li><span>集成测试</span></li><li><span>系统测试</span></li><li><span>压力测试</span></li><li><span>部署测试</span></li></ul></li><li><p><span>软件配置管理</span></p></li><li><p><span>软件项目管理</span></p></li><li><p><span>软件项目估算</span></p></li><li><p><span>项目进度安排</span></p></li><li><p><span>风险管理</span></p></li><li><p><span>软件过程改进</span></p><ul><li><span>成熟度模型</span></li></ul></li></ul><p>&nbsp;</p><h4 id='学习建议-14'><span>学习建议</span></h4><p><span>大学软件专业的必修课，偏理论，能学到很多企业软件开发的方法，也是对软件开发同学综合能力的提升，有时间的话可以了解下。但对想要快速找工作的同学来说，忽略即可，面试基本不会问。</span></p><p>&nbsp;</p><h4 id='资源-14'><span>资源</span></h4><ul><li><p><span>书籍</span></p><ul><li><span>《软件工程：实践者的研究方法》：</span><a href='https://book.douban.com/subject/6047742/' target='_blank' class='url'>https://book.douban.com/subject/6047742/</a><span>（经典大黑书，讲的非常全面，但同样完整读下来还是有些难度的）</span></li><li><span>《软件开发的 201 个原则》：</span><a href='https://book.douban.com/subject/35628886/' target='_blank' class='url'>https://book.douban.com/subject/35628886/</a><span>（工具书，看一遍挺好的）</span></li></ul></li><li><p><span>视频</span></p><ul><li><span>清华大学软件工程：</span><a href='https://www.bilibili.com/video/BV1eE411V7Cr' target='_blank' class='url'>https://www.bilibili.com/video/BV1eE411V7Cr</a></li><li><span>北京大学软件工程：</span><a href='https://www.bilibili.com/video/BV1Vt411V72G' target='_blank' class='url'>https://www.bilibili.com/video/BV1Vt411V72G</a></li><li><span>大连工业大学软件工程：</span><a href='https://www.bilibili.com/video/BV1Ns41177VM' target='_blank' class='url'>https://www.bilibili.com/video/BV1Ns41177VM</a></li></ul></li><li><p><span>大学课件</span></p><ul><li><span>浙大计算机软件工程：</span><a href='https://github.com/QSCTech/zju-icicles' target='_blank' class='url'>https://github.com/QSCTech/zju-icicles</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-设计模式21-天）'><span>🌖 设计模式（21 天）</span></h3><p><span>设计模式是软件开发中解决一类问题的通用方法。</span></p><p><span>使用设计模式能让你写出更优雅、可维护的代码，也正因如此，很多框架源码都用到了设计模式，你不学很难看懂。</span></p><p>&nbsp;</p><h4 id='知识-14'><span>知识</span></h4><ul><li><p><span>创建型模式：对象实例化的模式，创建型模式用于解耦对象的实例化过程</span></p><ul><li><span>单例模式</span></li><li><span>工厂方法模式</span></li><li><span>抽象工厂</span></li><li><span>建造者模式</span></li><li><span>原型模式</span></li></ul></li><li><p><span>结构型模式：把类或对象结合在一起形成一个更大的结构</span></p><ul><li><span>适配器模式</span></li><li><span>组合模式</span></li><li><span>装饰器模式</span></li><li><span>代理模式</span></li><li><span>享元模式</span></li><li><span>外观模式</span></li><li><span>桥接模式</span></li></ul></li><li><p><span>行为型模式：类和对象如何交互，及划分责任和算法</span></p><ul><li><span>迭代器模式</span></li><li><span>模板方法模式</span></li><li><span>策略模式</span></li><li><span>命令模式</span></li><li><span>状态模式</span></li><li><span>责任链模式</span></li><li><span>备忘录模式</span></li><li><span>观察者模式</span></li><li><span>访问者模式</span></li><li><span>中介者模式</span></li><li><span>解释器模式</span></li></ul></li></ul><p>&nbsp;</p><h4 id='学习建议-15'><span>学习建议</span></h4><p><span>先理解概念，了解每个设计模式的特点和应用场景，再多加练习，运用到实际项目。</span></p><p>&nbsp;</p><h4 id='经典面试题-10'><span>经典面试题</span></h4><ol start='' ><li><span>单例模式有哪些实现方式？有哪些优缺点？请手写其中一种</span></li><li><span>你用过哪些设计模式，为什么用它？</span></li></ol><p>&nbsp;</p><h4 id='资源-15'><span>资源</span></h4><ul><li><p><span>书籍</span></p><ul><li><span>⭐《图解设计模式》（强烈推荐这本书，正是用 Java 语言实现，图多、有示例代码、有习题和答案，很不错）</span></li><li><span>《Head First 设计模式》</span></li><li><span>《大话设计模式》</span></li><li><span>《设计模式：可复用面向对象软件的基础》（大黑书，有能力的话也可以去读）</span></li></ul></li><li><p><span>视频</span></p><ul><li><span>尚硅谷图解 Java 设计模式：</span><a href='https://www.bilibili.com/video/BV1G4411c7N4' target='_blank' class='url'>https://www.bilibili.com/video/BV1G4411c7N4</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>菜鸟教程：</span><a href='https://www.runoob.com/design-pattern/design-pattern-tutorial.html' target='_blank' class='url'>https://www.runoob.com/design-pattern/design-pattern-tutorial.html</a></li><li><span>图说设计模式：</span><a href='https://design-patterns.readthedocs.io/zh_CN/latest/' target='_blank' class='url'>https://design-patterns.readthedocs.io/zh_CN/latest/</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌕-缓存14-天）'><span>🌕 缓存（14 天）</span></h3><p><span>缓存是高并发系统不可或缺的技术，可以提高系统的性能和并发，因此是后台开发必学的知识点，也是面试重点。</span></p><p>&nbsp;</p><h4 id='知识-15'><span>知识</span></h4><ul><li><p><span>什么是缓存？</span></p></li><li><p><span>本地缓存</span></p><ul><li><span>Caffeine 库</span></li></ul></li><li><p><span>多级缓存</span></p></li><li><p><span>Redis 分布式缓存</span></p><ul><li><p><span>数据类型</span></p></li><li><p><span>常用操作</span></p></li><li><p><span>Java 操作 Redis</span></p><ul><li><span>Spring Boot Redis Template</span></li><li><span>Redisson</span></li></ul></li><li><p><span>主从模型搭建</span></p></li><li><p><span>哨兵集群搭建</span></p></li><li><p><span>日志持久化</span></p></li></ul></li><li><p><span>缓存（Redis）应用场景</span></p><ul><li><span>数据共享</span></li><li><span>单点登录</span></li><li><span>计数器</span></li><li><span>限流</span></li><li><span>点赞</span></li><li><span>实时排行榜</span></li><li><span>分布式锁</span></li></ul></li><li><p><span>缓存常见问题</span></p><ul><li><span>缓存雪崩</span></li><li><span>缓存击穿</span></li><li><span>缓存穿透</span></li><li><span>缓存更新一致性</span></li></ul></li><li><p><span>相关技术：Memcached、Ehcache</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-16'><span>学习建议</span></h4><p><span>学会如何简单地使用缓存并不难，和数据库类似，无非就是调用 API 对数据进行增删改查。</span></p><p><span>因此，建议先能够独立使用它，了解缓存的应用场景；再学习如何在 Java 中操作缓存中间件，并尝试和项目相结合，提高系统的性能。</span></p><p><span>跟着视频教程实操一遍即可，可以等到面试前再去深入了解原理和高级特性。</span></p><p>&nbsp;</p><h4 id='经典面试题-11'><span>经典面试题</span></h4><ol start='' ><li><span>Redis 为什么快？</span></li><li><span>Redis 有哪些常用的数据结构？</span></li><li><span>Redis RDB 和 AOF 持久化的区别，如何选择？</span></li><li><span>如何解决缓存击穿、缓存穿透、雪崩问题？</span></li><li><span>如何用 Redis 实现点赞功能，怎么设计 Key / Value？</span></li></ol><p>&nbsp;</p><h4 id='资源-16'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷 - 2021 最新 Redis 6 入门到精通教程：</span><a href='https://www.bilibili.com/video/BV1Rv41177Af' target='_blank' class='url'>https://www.bilibili.com/video/BV1Rv41177Af</a><span>（基于 Redis 6 的，推荐）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>Redis 命令参考：</span><a href='http://redisdoc.com/' target='_blank' class='url'>http://redisdoc.com/</a></li><li><span>Redis 面试题整理：</span><a href='https://github.com/lokles/Web-Development-Interview-With-Java/blob/main/Redis%E9%97%AE%E9%A2%98.md' target='_blank' class='url'>https://github.com/lokles/Web-Development-Interview-With-Java/blob/main/Redis%E9%97%AE%E9%A2%98.md</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《Redis 实战》（经典）</span></li></ul></li><li><p><span>工具</span></p><ul><li><span>⭐ Redis 在线练习：</span><a href='https://try.redis.io/' target='_blank' class='url'>https://try.redis.io/</a><span>（强烈推荐）</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-消息队列14-天）'><span>🌖 消息队列（14 天）</span></h3><p><span>消息队列是用于传输和保存消息的容器，也是大型分布式系统中常用的技术，主要解决应用耦合、异步消息、流量削锋等问题。后台开发必学，也是面试重点。</span></p><p>&nbsp;</p><h4 id='知识-16'><span>知识</span></h4><ul><li><p><span>消息队列的作用</span></p></li><li><p><span>RabbitMQ 消息队列</span></p><ul><li><span>生产消费模型</span></li><li><span>交换机模型</span></li><li><span>死信队列</span></li><li><span>延迟队列</span></li><li><span>消息持久化</span></li><li><span>Java 操作</span></li><li><span>集群搭建</span></li></ul></li><li><p><span>相关技术：Kafka、ActiveMQ、TubeMQ、RocketMQ</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-17'><span>学习建议</span></h4><p><span>和缓存一样，学会如何使用消息队列并不难，无非就是调用 API 去生产、转发和消费消息。</span></p><p><span>因此，建议先能够独立使用它，了解消息队列的应用场景；再学习如何在 Java 中操作消息队列中间件，并尝试和项目相结合，感受消息队列带来的好处。</span></p><p><span>这里我建议初学者先学习 RabbitMQ，比 Kafka 要好理解一些。跟着视频教程实操一遍即可，可以等到面试前再去深入了解原理和高级特性。</span></p><p>&nbsp;</p><h4 id='经典面试题-12'><span>经典面试题</span></h4><ol start='' ><li><span>使用消息队列有哪些优缺点？</span></li><li><span>如何保证消息消费的幂等性？</span></li><li><span>消息队列有哪些路由模型？</span></li><li><span>你是否用过消息队列，解决过什么问题？</span></li></ol><p>&nbsp;</p><h4 id='资源-17'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷 - 2021 最新 RabbitMQ 教程：</span><a href='https://www.bilibili.com/video/BV1cb4y1o7zz' target='_blank' class='url'>https://www.bilibili.com/video/BV1cb4y1o7zz</a><span>（很新很全面）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>RabbitMQ 中文文档：</span><a href='http://rabbitmq.mr-ping.com/' target='_blank' class='url'>http://rabbitmq.mr-ping.com/</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《RabbitMQ 实战：高效部署分布式消息队列》（经典）</span></li></ul></li><li><p><span>工具</span></p><ul><li><span>⭐ RabbitMQ 在线模拟器：</span><a href='http://tryrabbitmq.com/' target='_blank' class='url'>http://tryrabbitmq.com/</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-nginx14-天）'><span>🌖 Nginx（14 天）</span></h3><p><span>Nginx 是主流的、开源的、高性能的 HTTP 和反向代理 web 服务器，可以用于挂载网站、请求转发、负载均衡、网关路由等。前后端开发同学都需要学习，在后端开发的面试中有时会考到。</span></p><p>&nbsp;</p><h4 id='知识-17'><span>知识</span></h4><ul><li><span>Nginx 作用</span></li><li><span>正向代理</span></li><li><span>反向代理（负载均衡）</span></li><li><span>常用命令</span></li><li><span>配置</span></li><li><span>动静分离（网站部署）</span></li><li><span>集群搭建</span></li><li><span>相关技术：HAProxy、Apache</span></li></ul><p>&nbsp;</p><h4 id='学习建议-18'><span>学习建议</span></h4><p><span>Nginx 的基本使用非常简单，甚至不需要看任何的视频，跟着一篇文章就能够用它来提供网站访问能力、实现反向代理。</span></p><p><span>但是在企业中，Nginx 的使用往往没那么简单，作为负载均衡、请求转发的重要组件，往往需要针对实际场景去写一些特定的配置。因此建议有时间的话，实践下 Nginx 的配置方法，了解 Nginx 基本的设计思想，对今后自己设计系统时也有帮助。</span></p><p>&nbsp;</p><h4 id='经典面试题-13'><span>经典面试题</span></h4><ol start='' ><li><span>Nginx 有哪些作用？</span></li><li><span>Nginx 为什么支持高并发？</span></li><li><span>Nginx 有哪些负载均衡策略？</span></li><li><span>什么是 Nginx 惊群问题，如何解决它？</span></li></ol><p>&nbsp;</p><h4 id='资源-18'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷 - Nginx 教程由浅入深：</span><a href='https://www.bilibili.com/video/BV1zJ411w7SV' target='_blank' class='url'>https://www.bilibili.com/video/BV1zJ411w7SV</a><span>（讲的比较全面）</span></li><li><span>⭐ Nginx 鱼皮 - 手把手带你从0搭建个人网站：</span><a href='https://www.bilibili.com/video/BV1rU4y1J785/' target='_blank' class='url'>https://www.bilibili.com/video/BV1rU4y1J785/</a><span> （简单演示 Nginx 部署网站）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>Nginx 中文文档：</span><a href='https://www.nginx.cn/doc/index.html' target='_blank' class='url'>https://www.nginx.cn/doc/index.html</a></li></ul></li><li><p><span>工具</span></p><ul><li><span>Nginx 配置在线生成：</span><a href='https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN' target='_blank' class='url'>https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌗-netty-网络编程21-天）'><span>🌗 Netty 网络编程（21 天）</span></h3><p><span>开源的 Java 网络编程框架，用于开发高性能（事件驱动、异步非阻塞）、高可靠的网络服务器和客户端程序。</span></p><p><span>很多网络框架和服务器程序都用到了 Netty 作为底层，学好 Netty 不仅可以让我们自己实现高性能服务器，也能更好地理解其他的框架应用、阅读源码。</span></p><p>&nbsp;</p><h4 id='知识-18'><span>知识</span></h4><ul><li><span>IO 模型（BIO / NIO）</span></li><li><span>Channel</span></li><li><span>Buffer</span></li><li><span>Seletor</span></li><li><span>Netty 模型</span></li><li><span>WebSocket 编程（动手做个聊天室）</span></li><li><span>相关技术：Vertx（中文文档：</span><a href='http://vertxchina.github.io/vertx-translation-chinese/' target='_blank' class='url'>http://vertxchina.github.io/vertx-translation-chinese/</a><span>，比 Netty 简单多了，实在看不懂 Netty 也可以学习下这个）</span></li></ul><p>&nbsp;</p><h4 id='学习建议-19'><span>学习建议</span></h4><p><span>不同于之前学的 SSM 框架，Netty 还是需要一定学习成本的，一方面是国内资源太缺乏，另一方面很多重要的概念（比如 NIO）还是要多动手写代码调试才能理解。</span></p><p><span>还是建议先从视频入门，并且不建议在 Netty 上花太多时间，面试的时候一般也就考察一些 Netty 背后的思想（比如 NIO）而非框架本身的语法细节。</span></p><p>&nbsp;</p><h4 id='经典面试题-14'><span>经典面试题</span></h4><ol start='' ><li><span>Netty 有哪些优点？</span></li><li><span>什么是 NIO？</span></li><li><span>介绍 Netty 的零拷贝机制</span></li></ol><p>&nbsp;</p><h4 id='资源-19'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷Netty教程：</span><a href='https://www.bilibili.com/video/BV1DJ411m7NR' target='_blank' class='url'>https://www.bilibili.com/video/BV1DJ411m7NR</a></li><li><span>Netty 技术演讲（中文字幕版）：</span><a href='https://www.youtube.com/watch?v=I8yy2Cy7dDI' target='_blank' class='url'>https://www.youtube.com/watch?v=I8yy2Cy7dDI</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>Netty 4 用户指南：</span><a href='https://www.w3cschool.cn/netty_4_user_guide/' target='_blank' class='url'>https://www.w3cschool.cn/netty_4_user_guide/</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《Netty 实战》</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-微服务60-天）'><span>🌖 微服务（60 天）</span></h3><p><span>随着互联网的发展，项目越来越复杂，单机且庞大的巨石项目已无法满足开发、运维、并发、可靠性等需求。</span></p><p><span>因此，后台架构不断演进，可以将庞大的项目拆分成一个个职责明确、功能独立的细小模块，模块可以部署在多台服务器上，相互配合协作，提供完整的系统能力。</span></p><p><span>换言之，想做大型项目，这块儿一定要好好学！</span></p><p>&nbsp;</p><h4 id='知识-19'><span>知识</span></h4><h5 id='dubbo'><span>Dubbo</span></h5><ul><li><span>架构演进</span></li><li><span>RPC</span></li><li><span>Zookeeper</span></li><li><span>服务提供者</span></li><li><span>服务消费者</span></li><li><span>项目搭建</span></li><li><span>相关技术：DubboX（对 Dubbo 的扩展）</span></li></ul><p>&nbsp;</p><h5 id='🌖-微服务'><span>🌖 微服务</span></h5><ul><li><p><span>微服务概念</span></p></li><li><p><span>Spring Cloud 框架</span></p><ul><li><span>子父工程</span></li><li><span>服务注册与发现</span></li><li><span>注册中心 Eureka、Zookeeper、Consul</span></li><li><span>Ribbon 负载均衡</span></li><li><span>Feign 服务调用</span></li><li><span>Hystrix 服务限流、降级、熔断</span></li><li><span>Resilience4j 服务容错</span></li><li><span>Gateway（Zuul）微服务网关</span></li><li><span>Config 分布式配置中心</span></li><li><span>分布式服务总线</span></li><li><span>Sleuth + Zipkin 分布式链路追踪</span></li></ul></li><li><p><span>Spring Cloud Alibaba</span></p><ul><li><span>Nacos 注册、配置中心</span></li><li><span>OpenFeign 服务调用</span></li><li><span>Sentinel 流控</span></li><li><span>Seata 分布式事务</span></li></ul></li></ul><p>&nbsp;</p><h5 id='接口管理'><span>接口管理</span></h5><ul><li><span>Swagger 接口文档</span></li><li><span>Postman 接口测试</span></li><li><span>相关技术：YApi、ShowDoc</span></li></ul><p>&nbsp;</p><h4 id='学习建议-20'><span>学习建议</span></h4><p><span>时间不急的话，建议先从 Dubbo 学起，对分布式、RPC、微服务有些基本的了解，再去食用 Spring Cloud 全家桶会更香。学完 Spring Cloud 全家桶后，再去学 Spring Cloud Alibaba 就很简单了。</span></p><p><span>这部分内容的学习，原理 + 实践都很重要，也不要被各种高大上的词汇唬住了，都是上层（应用层）的东西，基本没有什么算法，跟着视频教程学，其实还是很好理解的。</span></p><p><span>分布式相关知识非常多，但这里不用刻意去背，先通过视频教程实战使用一些微服务框架，也能对其中的概念有基本的了解。</span></p><p><span>大厂面试的时候很少问 Spring Cloud 框架的细节，更多的是微服务以及各组件的一些思想，比如网关的好处、消息总线的好处等。</span></p><p>&nbsp;</p><h4 id='经典面试题-15'><span>经典面试题</span></h4><ol start='' ><li><span>什么是微服务，有哪些优缺点？</span></li><li><span>什么是注册中心，能解决什么问题？</span></li></ol><p>&nbsp;</p><h4 id='资源-20'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷 Dubbo 教程：</span><a href='https://www.bilibili.com/video/BV1ns411c7jV' target='_blank' class='url'>https://www.bilibili.com/video/BV1ns411c7jV</a></li><li><span>⭐ 尚硅谷 SpringCloud（H版&amp;alibaba）框架开发教程（微服务分布式架构）：</span><a href='https://www.bilibili.com/video/BV18E411x7eT' target='_blank' class='url'>https://www.bilibili.com/video/BV18E411x7eT</a><span>（把国外的 Spring Cloud 和国内的 Spring Cloud Alibaba 结合在一起对比着去讲，主流技术栈、知识点都讲到了，真心不错！）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>Apache Dubbo 官方文档：</span><a href='https://dubbo.apache.org/zh/' target='_blank' class='url'>https://dubbo.apache.org/zh/</a></li><li><span>Spring Cloud Alibaba 官方文档：</span><a href='https://github.com/alibaba/spring-cloud-alibaba/blob/master/README-zh.md' target='_blank' class='url'>https://github.com/alibaba/spring-cloud-alibaba/blob/master/README-zh.md</a></li><li><span>⭐ Swagger 教学文档：</span><a href='https://doc.xiaominfo.com/' target='_blank' class='url'>https://doc.xiaominfo.com/</a><span>（跟着快速开始直接用就好了）</span></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-容器7-天）'><span>🌖 容器（7 天）</span></h3><p><span>将应用和环境进行封装，相互隔离、独立部署、便于移植，提高安全性、提高开发和维护效率。</span></p><p><span>便于实现微服务、持续集成和交付。</span></p><p>&nbsp;</p><h4 id='知识-20'><span>知识</span></h4><ul><li><p><span>🌖 Docker</span></p><ul><li><span>容器概念</span></li><li><span>镜像</span></li><li><span>部署服务</span></li><li><span>Dockerfile</span></li><li><span>Docker Compose</span></li><li><span>Docker Machine</span></li><li><span>Docker Swarm</span></li><li><span>多阶段构建</span></li></ul></li><li><p><span>🌘 K8S（Kubernetes）</span></p><ul><li><p><span>K8S 架构</span></p></li><li><p><span>工作负载</span></p><ul><li><span>资源类型</span></li><li><span>Pod</span></li><li><span>Pod 生命周期</span></li><li><span>Pod 安全策略</span></li></ul></li><li><p><span>K8S 组件</span></p></li><li><p><span>K8S 对象</span></p></li><li><p><span>部署应用</span></p></li><li><p><span>服务</span></p><ul><li><span>Ingress</span></li></ul></li><li><p><span>Kubectl 命令行</span></p></li><li><p><span>集群管理</span></p></li></ul></li><li><p><span>相关技术：Apache Mesos、Mesosphere</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-21'><span>学习建议</span></h4><p><span>业务上云是趋势，但是对于开发同学来说，会用 Docker / K8S 部署项目和服务就行。实际工作中，企业一般都有现成的平台直接用，面试考察的也不多，不用花太多时间。</span></p><p>&nbsp;</p><h4 id='经典面试题-16'><span>经典面试题</span></h4><ol start='' ><li><span>什么是容器？</span></li><li><span>使用  Docker 有哪些好处？</span></li><li><span>如何快速启动多个 Docker 节点？</span></li></ol><p>&nbsp;</p><h4 id='资源-21'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐【狂神说】Docker 最新超详细版教程通俗易懂：</span><a href='https://www.bilibili.com/video/BV1og4y1q7M4' target='_blank' class='url'>https://www.bilibili.com/video/BV1og4y1q7M4</a></li><li><span>K8S 视频教程：</span><a href='https://www.bilibili.com/video/BV1K5411N7j8' target='_blank' class='url'>https://www.bilibili.com/video/BV1K5411N7j8</a></li></ul></li><li><p><span>书籍</span></p><ul><li><span>《深入浅出 Docker》：</span><a href='https://www.zhihu.com/pub/reader/119632192' target='_blank' class='url'>https://www.zhihu.com/pub/reader/119632192</a></li></ul></li><li><p><span>文档</span></p><ul><li><span>Docker — 从入门到实践：</span><a href='https://vuepress.mirror.docker-practice.com/' target='_blank' class='url'>https://vuepress.mirror.docker-practice.com/</a></li><li><span>菜鸟教程 Docker：</span><a href='https://www.runoob.com/docker/docker-tutorial.html' target='_blank' class='url'>https://www.runoob.com/docker/docker-tutorial.html</a></li><li><span>国外 Docker 官方文档：</span><a href='https://docs.docker.com/get-started/' target='_blank' class='url'>https://docs.docker.com/get-started/</a></li></ul></li><li><p><span>网站</span></p><ul><li><span>Docker 中文社区：</span><a href='https://www.docker.org.cn/' target='_blank' class='url'>https://www.docker.org.cn/</a><span>（强烈推荐，有很多 Docker 技术文章和学习笔记）</span></li><li><span>Docker Blog：</span><a href='https://www.docker.com/blog/' target='_blank' class='url'>https://www.docker.com/blog/</a><span>（国外 Docker 技术博客）</span></li></ul></li><li><p><span>镜像源</span></p><ul><li><span>Docker Hub：</span><a href='https://hub.docker.com' target='_blank' class='url'>https://hub.docker.com</a></li><li><span>腾讯软件源：</span><a href='http://mirrors.tencent.com/#/index' target='_blank' class='url'>http://mirrors.tencent.com/#/index</a></li><li><span>阿里云 Docker 仓库：</span><a href='https://cr.console.aliyun.com/' target='_blank' class='url'>https://cr.console.aliyun.com/</a></li></ul></li></ul><p>&nbsp;</p><p>&nbsp;</p><h3 id='🌗-ci--cd3-天）'><span>🌗 CI / CD（3 天）</span></h3><p><span>持续集成 / 持续交付，贯穿整个研发到项目上线的过程，提高效率。</span></p><p><span>大公司一般都有自己的 CI / CD 平台。</span></p><p>&nbsp;</p><h4 id='知识-21'><span>知识</span></h4><ul><li><span>什么是 CI / CD</span></li><li><span>CI / CD 有什么好处</span></li><li><span>使用任一 CI / CD 平台</span></li><li><span>相关技术：Jenkins、GitLab、微信云托管</span></li></ul><p>&nbsp;</p><h4 id='学习建议-22'><span>学习建议</span></h4><p><span>了解它是什么，并且实战使用任一 CI / CD 平台，感受它和传统开发运维到底有什么不同，就足够了。其实很简单，不要花太多时间。</span></p><p><span>真正要自己去搭建的时候，跟着官方文档来就行。</span></p><p>&nbsp;</p><h4 id='资源-22'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐【狂神说】CI/CD到底是什么？十分钟理解企业级DevOps：</span><a href='https://www.bilibili.com/video/BV1zf4y127vu' target='_blank' class='url'>https://www.bilibili.com/video/BV1zf4y127vu</a><span>（讲的非常棒！带你快速理解 CI / CD 的作用和部分原理）</span></li><li><span>尚硅谷 - Jenkins 持续集成工具教程：</span><a href='https://www.bilibili.com/video/BV1GW411w7pn' target='_blank' class='url'>https://www.bilibili.com/video/BV1GW411w7pn</a><span>（实在要用到 Jenkins 再去学）</span></li></ul></li><li><p><span>文档</span></p><ul><li><span>Jenkins 官方文档：</span><a href='https://www.jenkins.io/zh/' target='_blank' class='url'>https://www.jenkins.io/zh/</a><span> （有很多案例，要用的时候查一下就行了）</span></li></ul></li><li><p><span>实战平台</span></p><ul><li><span>⭐ 微信云托管：</span><a href='https://cloud.weixin.qq.com/cloudrun' target='_blank' class='url'>https://cloud.weixin.qq.com/cloudrun</a><span>（直播演示过，鱼皮后面会给大家出视频教程）</span></li><li><span>前端托管 Webify：</span><a href='https://cloud.tencent.com/product/webify' target='_blank' class='url'>https://cloud.tencent.com/product/webify</a><span>（鱼皮给大家出过视频教程的 </span><a href='https://www.bilibili.com/video/BV11V411p7vf/' target='_blank' class='url'>https://www.bilibili.com/video/BV11V411p7vf/</a><span>）</span></li></ul></li></ul><p>&nbsp;</p><h3 id='练手项目-3'><span>练手项目</span></h3><blockquote><p><span>更多请见本路线阶段 5：</span><a href='#项目源码50-套）'><span>项目源码（50 套）</span></a><span> 。</span></p></blockquote><p>&nbsp;</p><ul><li><span>mall-learning：</span><a href='https://github.com/macrozheng/mall-learningmall' target='_blank' class='url'>https://github.com/macrozheng/mall-learningmall</a><span>（学习教程，架构、业务、技术要点全方位解析）</span></li><li><span>miaosha：</span><a href='https://github.com/qiurunze123/miaosha' target='_blank' class='url'>https://github.com/qiurunze123/miaosha</a><span> （秒杀系统设计与实现）</span></li><li><span>Mall：</span><a href='https://github.com/macrozheng/mall' target='_blank' class='url'>https://github.com/macrozheng/mall</a><span>（包括前台商城系统及后台管理系统，基于 SpringBoot+MyBatis 实现）</span></li><li><span>Spring-Cloud-Admin：</span><a href='https://github.com/wxiaoqi/Spring-Cloud-AdminCloud-Admin' target='_blank' class='url'>https://github.com/wxiaoqi/Spring-Cloud-AdminCloud-Admin</a><span>（基于 Spring Cloud 微服务化开发平台，具有统一授权、认证的后台管理系统）</span></li><li><span>paascloud-master：</span><a href='https://github.com/paascloud/paascloud-master' target='_blank' class='url'>https://github.com/paascloud/paascloud-master</a><span>（基于 spring cloud + vue + oAuth2.0，前后端分离商城系统）</span></li><li><span>mall-swarm：</span><a href='https://github.com/macrozheng/mall-swarm' target='_blank' class='url'>https://github.com/macrozheng/mall-swarm</a><span>（一套微服务商城系统，采用了 Spring Cloud Greenwich、Spring Boot 2、MyBatis、Docker、Elasticsearch 等核心技术，同时提供了基于 Vue 的管理后台方便快速搭建系统）</span></li><li><span>SecKill：</span><a href='https://github.com/hfbin/Seckill' target='_blank' class='url'>https://github.com/hfbin/Seckill</a><span>（基于 SpringBoot+Mybatis+Redis+RabbitMQ 秒杀系统）</span></li><li><span>jeecg-boot：</span><a href='https://github.com/zhangdaiscott/jeecg-boot' target='_blank' class='url'>https://github.com/zhangdaiscott/jeecg-boot</a><span>（低代码开发平台）</span></li><li><span>PassJava-Platform：</span><a href='https://github.com/Jackson0714/PassJava-Platform' target='_blank' class='url'>https://github.com/Jackson0714/PassJava-Platform</a><span>（一款面试刷题的 Spring Cloud 开源系统）</span></li></ul><p>&nbsp;</p><h3 id='尾声-4'><span>尾声</span></h3><p><span>看到这里，相信你已经感叹：编程语言一辈子学不完了！</span></p><p><span>但是，不用担心，通过对这么多知识点的学习，相信你已经有了一定的积累，也不知不觉地锻炼了自主学习能力、资源检索能力、代码阅读能力、问题解决能力，之后的学习会越来越轻松。</span></p><p><span>接下来，可以试着用你学到的技术来解决实际的问题，自主从 0 开始做一些项目，保持编程手感。</span></p><p>&nbsp;</p><h2 id='阶段-5项目实战'><span>阶段 5：项目实战</span></h2><h3 id='目标-5'><span>目标</span></h3><p><span>综合所学技术从 0 到 1 开发和上线一个全面、有特色的、可以写进简历的个人项目。</span></p><p>&nbsp;</p><h3 id='学习建议-23'><span>学习建议</span></h3><p><span>其实在之前的框架学习视频中应该就做过几个项目了，但相对不够完整和体系化。</span></p><p><span>有想法的同学可以做任何自己想做的项目，推荐参加一些作品类竞赛，练手、拿奖、收获项目经历一举三得。</span></p><p><span>暂时没想法的朋友，建议先跟着专门带做项目的视频教程做 1 - 2 套 Java 完整项目，一定要从 0 到 1 自己手写！</span></p><p><span>有能力的朋友也可以试着用 GitHub 上的源码来学习啦~</span></p><p><span>做一个完整的项目的确很不容易，建议大家根据自己的 </span><strong><span>时间、兴趣</span></strong><span> 选择 </span><strong><span>较新的</span></strong><span>、</span><strong><span>有配套源码的</span></strong><span> 教程，保持耐心。</span></p><p><span>如何选择编程学习资源，可以看下我的原创文章：</span><a href='https://mp.weixin.qq.com/s/mlMql9RJCd7THt6rpGb8UA' target='_blank' class='url'>https://mp.weixin.qq.com/s/mlMql9RJCd7THt6rpGb8UA</a></p><p><span>下面推荐一些优质的、较新的项目实战视频教程 + 50 套项目源码。</span></p><p>&nbsp;</p><h3 id='视频教程'><span>视频教程</span></h3><ul><li><span>尚硅谷 - 谷粒学院 - 微服务 + 全栈 - 在线教育实战项目：</span><a href='https://www.bilibili.com/video/BV1dQ4y1A75e' target='_blank' class='url'>https://www.bilibili.com/video/BV1dQ4y1A75e</a><span>（全栈项目，前后端讲得都很全面）</span></li><li><span>尚硅谷 - 尚筹网 - Java项目实战开发教程 - SSM 框架 + 微服务架构：</span><a href='https://www.bilibili.com/video/BV1bE411T7oZ' target='_blank' class='url'>https://www.bilibili.com/video/BV1bE411T7oZ</a><span>（500 多集，包含完整的用户权限管理，功能丰富、讲得很细致全面）</span></li><li><span>黑马 - 24 小时搞定 Java 毕设电商项目：</span><a href='https://www.bilibili.com/video/BV13f4y1r7fS' target='_blank' class='url'>https://www.bilibili.com/video/BV13f4y1r7fS</a></li><li><span>黑马程序员 Java 项目《传智健康》，超完整的企业级医疗行业项目：</span><a href='https://www.bilibili.com/video/BV1Bo4y117zV' target='_blank' class='url'>https://www.bilibili.com/video/BV1Bo4y117zV</a></li><li><span>黑马程序员 Java 项目《万信金融》企业级开发实战，互联网金融行业解决方案：</span><a href='https://www.bilibili.com/video/BV1Ub4y1f7rk' target='_blank' class='url'>https://www.bilibili.com/video/BV1Ub4y1f7rk</a></li><li><span>黑马程序员 Java 项目 SaaS 移动办公完整版《iHRM 人力资源管理系统》，跨行业 SaaS 办公整合性解决方案：</span><a href='https://www.bilibili.com/video/BV18A411L7UX' target='_blank' class='url'>https://www.bilibili.com/video/BV18A411L7UX</a></li><li><span>黑马程序员 Java 大型分布式微服务闪聚支付项目，Java 移动支付全生态系统：</span><a href='https://www.bilibili.com/video/BV17v411V79c' target='_blank' class='url'>https://www.bilibili.com/video/BV17v411V79c</a></li><li><span>黑马程序员 Java 项目《好客租房》：</span><a href='https://www.bilibili.com/video/BV1sZ4y1F7PD' target='_blank' class='url'>https://www.bilibili.com/video/BV1sZ4y1F7PD</a></li></ul><p>&nbsp;</p><h3 id='常用类库'><span>常用类库</span></h3><h5 id='工具'><span>工具</span></h5><ul><li><span>Guava：谷歌开发的 Java 工具库（</span><a href='https://github.com/google/guava' target='_blank' class='url'>https://github.com/google/guava</a><span>）</span></li><li><span>Apache Commons：各类工具库，比如 commons-lang、commons-io、commons-collections 等（</span><a href='https://github.com/apache/commons-lang' target='_blank' class='url'>https://github.com/apache/commons-lang</a><span>）</span></li><li><span>Hutool：Java 工具集库（</span><a href='https://github.com/looly/hutool' target='_blank' class='url'>https://github.com/looly/hutool</a><span>）</span></li><li><span>Lombok：Java 增强库（</span><a href='https://github.com/projectlombok/lombok' target='_blank' class='url'>https://github.com/projectlombok/lombok</a><span>）</span></li><li><span>Apache HttpComponents Client：HTTP 客户端库（</span><a href='https://github.com/apache/httpcomponents-client' target='_blank' class='url'>https://github.com/apache/httpcomponents-client</a><span>）</span></li><li><span>OkHttp：适用于 JVM、Android 等平台的 Http 客户端（</span><a href='https://github.com/square/okhttp' target='_blank' class='url'>https://github.com/square/okhttp</a><span>）</span></li><li><span>Gson：谷歌的 JSON 处理库（</span><a href='https://github.com/google/gson' target='_blank' class='url'>https://github.com/google/gson</a><span>）</span></li><li><span>Jcommander：Java 命令行参数解析框架（</span><a href='https://github.com/cbeust/jcommander' target='_blank' class='url'>https://github.com/cbeust/jcommander</a><span>）</span></li><li><span>Apache PDFBox：PDF 操作库（</span><a href='https://github.com/apache/pdfbox' target='_blank' class='url'>https://github.com/apache/pdfbox</a><span>）</span></li><li><span>EasyExcel：阿里的 Excel 处理库（</span><a href='https://github.com/alibaba/easyexcel' target='_blank' class='url'>https://github.com/alibaba/easyexcel</a><span>）</span></li><li><span>Apache POI：表格文件处理库（</span><a href='https://github.com/apache/poi' target='_blank' class='url'>https://github.com/apache/poi</a><span>）</span></li></ul><p>&nbsp;</p><h5 id='测试'><span>测试</span></h5><ul><li><span>JUnit：Java 测试框架（</span><a href='https://github.com/junit-team/junit4' target='_blank' class='url'>https://github.com/junit-team/junit4</a><span>）</span></li><li><span>Mockito：Java 单元测试 Mock 框架（</span><a href='https://github.com/mockito/mockito' target='_blank' class='url'>https://github.com/mockito/mockito</a><span>）</span></li><li><span>Selenium：浏览器自动化框架（</span><a href='https://github.com/SeleniumHQ/selenium' target='_blank' class='url'>https://github.com/SeleniumHQ/selenium</a><span>）</span></li><li><span>htmlunit：Java 模拟浏览器（</span><a href='https://github.com/HtmlUnit/htmlunit' target='_blank' class='url'>https://github.com/HtmlUnit/htmlunit</a><span>）</span></li><li><span>TestNG：Java 测试框架（</span><a href='https://github.com/cbeust/testng' target='_blank' class='url'>https://github.com/cbeust/testng</a><span>）</span></li><li><span>Jacoco：Java 代码覆盖度库（</span><a href='https://github.com/jacoco/jacoco' target='_blank' class='url'>https://github.com/jacoco/jacoco</a><span>）</span></li></ul><p>&nbsp;</p><h5 id='其他-1'><span>其他</span></h5><ul><li><span>cglib：字节码生成库（</span><a href='https://github.com/cglib/cglib' target='_blank' class='url'>https://github.com/cglib/cglib</a><span>）</span></li><li><span>Arthas：Java 诊断工具（</span><a href='https://github.com/alibaba/arthas' target='_blank' class='url'>https://github.com/alibaba/arthas</a><span>）</span></li><li><span>config：针对 JVM 的配置库（</span><a href='https://github.com/lightbend/config' target='_blank' class='url'>https://github.com/lightbend/config</a><span>）</span></li><li><span>Quasar：Java 纤程库（</span><a href='https://github.com/puniverse/quasar' target='_blank' class='url'>https://github.com/puniverse/quasar</a><span>）</span></li><li><span>drools：Java 规则引擎（</span><a href='https://github.com/kiegroup/drools' target='_blank' class='url'>https://github.com/kiegroup/drools</a><span>）</span></li><li><span>Caffeine：Java 高性能缓存库（</span><a href='https://github.com/ben-manes/caffeine' target='_blank' class='url'>https://github.com/ben-manes/caffeine</a><span>）</span></li><li><span>Disruptor：高性能线程间消息传递库（</span><a href='https://github.com/LMAX-Exchange/disruptor' target='_blank' class='url'>https://github.com/LMAX-Exchange/disruptor</a><span>）</span></li><li><span>Knife4j：Swagger 文档增强（</span><a href='https://doc.xiaominfo.com/' target='_blank' class='url'>https://doc.xiaominfo.com/</a><span>）</span></li><li><span>Thumbnailator：Java 缩略图生成库（</span><a href='https://github.com/coobird/thumbnailator' target='_blank' class='url'>https://github.com/coobird/thumbnailator</a><span>）</span></li><li><span>Logback：Java 日志库（</span><a href='https://github.com/qos-ch/logback' target='_blank' class='url'>https://github.com/qos-ch/logback</a><span>）</span></li><li><span>Apache Camel：消息传输集成框架（</span><a href='https://github.com/apache/camel' target='_blank' class='url'>https://github.com/apache/camel</a><span>）</span></li><li><span>Quartz：定时任务调度库（</span><a href='https://github.com/quartz-scheduler/quartz' target='_blank' class='url'>https://github.com/quartz-scheduler/quartz</a><span>）</span></li><li><span>Apache Mahout：机器学习库（</span><a href='https://github.com/apache/mahout' target='_blank' class='url'>https://github.com/apache/mahout</a><span>）</span></li><li><span>Apache OpenNLP：NLP 工具库（</span><a href='https://github.com/apache/opennlp' target='_blank' class='url'>https://github.com/apache/opennlp</a><span>）</span></li><li><span>RxJava：JVM 反应式编程框架（</span><a href='https://github.com/ReactiveX/RxJava' target='_blank' class='url'>https://github.com/ReactiveX/RxJava</a><span>）</span></li><li><span>JProfiler：性能分析库（</span><a href='https://www.ej-technologies.com/products/jprofiler/overview.html' target='_blank' class='url'>https://www.ej-technologies.com/products/jprofiler/overview.html</a><span>）</span></li><li><span>jsoup：HTML 文档解析库（</span><a href='https://jsoup.org/' target='_blank' class='url'>https://jsoup.org/</a><span>）</span></li><li><span>webmagic：Java 爬虫框架（</span><a href='https://github.com/code4craft/webmagic/' target='_blank' class='url'>https://github.com/code4craft/webmagic/</a><span>）</span></li></ul><p>&nbsp;</p><h3 id='idea-插件'><span>IDEA 插件</span></h3><p><span>综合实用性、易用性、流行度、维护频率，精选了以下插件，简单分类为天地二品。</span></p><p>&nbsp;</p><h4 id='精选地品插件'><span>精选地品插件</span></h4><p><span>简单好用、增强功能</span></p><p>&nbsp;</p><ul><li><p><span>Background Image Plus +</span></p><ul><li><span>描述：给编辑器设置背景图片（小姐姐图片）</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/11247-background-image-plus-' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/11247-background-image-plus-</a></li></ul></li><li><p><span>Chinese Language Pack</span></p><ul><li><span>描述：中文支持</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----</a></li></ul></li><li><p><span>Translation</span></p><ul><li><span>描述：翻译插件，鼠标选中文本，点击右键即可自动翻译成多国语言。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8579-translation/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8579-translation/</a></li></ul></li><li><p><span>Key Promoter X</span></p><ul><li><span>描述：快捷键提示插件。当你执行鼠标操作时，如果该操作可被快捷键代替，会给出提示，帮助你自然形成使用快捷键的习惯，告别死记硬背。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9792-key-promoter-x/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9792-key-promoter-x/</a></li></ul></li><li><p><span>Rainbow Brackets</span></p><ul><li><span>描述：给括号添加彩虹色，使开发者通过颜色区分括号嵌套层级，便于阅读</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/</a></li></ul></li><li><p><span>CodeGlance</span></p><ul><li><span>描述：在编辑器右侧生成代码小地图，可以拖拽小地图光标快速定位代码，阅读行数很多的代码文件时非常实用。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7275-codeglance/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7275-codeglance/</a></li></ul></li><li><p><span>WakaTime</span></p><ul><li><span>描述：代码统计和跟踪插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7425-wakatime' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7425-wakatime</a></li></ul></li><li><p><span>Statistic</span></p><ul><li><span>描述：代码统计</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/4509-statistic' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/4509-statistic</a></li></ul></li></ul><p>&nbsp;</p><h4 id='精选天品插件'><span>精选天品插件</span></h4><p><span>提高开发效率和代码质量</span></p><p>&nbsp;</p><ul><li><p><span>String Manipulation</span></p><ul><li><span>描述：字符串快捷处理</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/2162-string-manipulation' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/2162-string-manipulation</a></li></ul></li><li><p><span>Tabnine AI Code Completion</span></p><ul><li><span>描述：使用 AI 去自动提示和补全代码，比 IDEA 自带的代码补全更加智能化</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code-completion-js-java-python-ts-rust-go-php--more' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code-completion-js-java-python-ts-rust-go-php--more</a></li></ul></li><li><p><span>GsonFormatPlus</span></p><ul><li><span>描述：根据 json 生成对象</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/14949-gsonformatplus' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/14949-gsonformatplus</a></li></ul></li><li><p><span>JUnitGenerator V2.0</span></p><ul><li><span>描述：自动生成单元测试</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/3064-junitgenerator-v2-0' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/3064-junitgenerator-v2-0</a></li></ul></li><li><p><span>RestfulTool</span></p><ul><li><span>描述：辅助 web 开发的工具集</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/14280-restfultool' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/14280-restfultool</a></li></ul></li><li><p><span>SequenceDiagram</span></p><ul><li><span>描述：自动生成方法调用时序图</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8286-sequencediagram' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8286-sequencediagram</a></li></ul></li><li><p><span>CheckStyle-IDEA</span></p><ul><li><span>描述：自动检查 Java 代码规范</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/1065-checkstyle-idea' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/1065-checkstyle-idea</a></li></ul></li><li><p><span>Alibaba Java Coding Guidelines</span></p><ul><li><span>描述：代码规范检查插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines</a></li></ul></li><li><p><span>SonarLint</span></p><ul><li><span>描述：帮助你发现和修复代码的错误和漏洞</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7973-sonarlint' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7973-sonarlint</a></li></ul></li><li><p><span>MybatisX</span></p><ul><li><span>描述：MyBatis 增强插件，支持自动生成 entity、mapper、service 等常用操作的代码，优化体验</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10119-mybatisx' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10119-mybatisx</a></li></ul></li></ul><p>&nbsp;</p><h4 id='美化类'><span>美化类</span></h4><ul><li><p><span>Extra Icons</span></p><ul><li><span>描述：图标美化插件，支持更多文件类型</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/11058-extra-icons' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/11058-extra-icons</a></li></ul></li><li><p><span>Chinese Language Pack</span></p><ul><li><span>描述：中文支持</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----</a></li></ul></li><li><p><span>Grep Console</span></p><ul><li><span>描述：自定义设置控制台输出颜色</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/idea/plugin/7125-grep-console' target='_blank' class='url'>https://plugins.jetbrains.com/idea/plugin/7125-grep-console</a></li></ul></li><li><p><span>Material Theme UI</span></p><ul><li><span>描述：美观的主题</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8006-material-theme-ui' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8006-material-theme-ui</a></li></ul></li><li><p><span>Nyan Progress Bar</span></p><ul><li><span>描述：进度条美化</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar</a></li></ul></li><li><p><span>activate-power-mode</span></p><ul><li><span>描述：打字特效</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8330-activate-power-mode' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8330-activate-power-mode</a></li></ul></li><li><p><span>Power Mode II</span></p><ul><li><span>描述：打字特效插件升级版</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8251-power-mode-ii' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8251-power-mode-ii</a></li></ul></li><li><p><span>Rainbow Brackets</span></p><ul><li><span>描述：给括号添加彩虹色，使开发者通过颜色区分括号嵌套层级，便于阅读</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/</a></li></ul></li><li><p><span>Background Image Plus +</span></p><ul><li><span>描述：给编辑器设置背景图片</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/11247-background-image-plus-' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/11247-background-image-plus-</a></li></ul></li></ul><p>&nbsp;</p><h4 id='代码生成类'><span>代码生成类</span></h4><ul><li><p><span>Codota AI Autocomplete for Java and JavaScript</span></p><ul><li><span>描述：使用 AI 去自动提示和补全代码，比 IDEA 自带的代码补全更加智能化</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript</a></li></ul></li><li><p><span>Tabnine AI Code Completion</span></p><ul><li><span>描述：使用 AI 来自动提示和补全代码，比 IDEA 自带的代码补全更加智能化</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code-completion-js-java-python-ts-rust-go-php--more' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code-completion-js-java-python-ts-rust-go-php--more</a></li></ul></li><li><p><span>UUID Generator</span></p><ul><li><span>描述：生成随机的 UUID</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8320-uuid-generator' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8320-uuid-generator</a></li></ul></li><li><p><span>Randomness</span></p><ul><li><span>描述：生成随机值</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9836-randomness' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9836-randomness</a></li></ul></li><li><p><span>.ignore</span></p><ul><li><span>描述：生成不同语言的版本控制忽略文件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7495--ignore' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7495--ignore</a></li></ul></li><li><p><span>Auto filling Java call arguments</span></p><ul><li><span>描述：通过快捷键自动补全函数的调用参数</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8638-auto-filling-java-call-arguments/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8638-auto-filling-java-call-arguments/</a></li></ul></li><li><p><span>GenerateAllSetter</span></p><ul><li><span>描述：快速生成调用对象 setter 方法的代码</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9360-generateallsetter' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9360-generateallsetter</a></li></ul></li><li><p><span>GenerateSerialVersionUID</span></p><ul><li><span>描述：一键为实现 Serializable 接口的类生成 SerialVersionUID</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/185-generateserialversionuid/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/185-generateserialversionuid/</a></li></ul></li><li><p><span>GsonFormatPlus</span></p><ul><li><span>描述：根据 json 生成对象</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/14949-gsonformatplus' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/14949-gsonformatplus</a></li></ul></li><li><p><span>Lombok</span></p><ul><li><span>描述：配合 Lombok 依赖及注解使用，能够大大减少 Java 对象的代码量。IDEA 已自带，无需安装。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/6317-lombok/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/6317-lombok/</a></li></ul></li><li><p><span>Easy Code</span></p><ul><li><span>描述：根据数据库表生成 Java entity、dao、mapper、service、controller 等代码</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10954-easy-code' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10954-easy-code</a></li></ul></li><li><p><span>Easy Javadoc</span></p><ul><li><span>描述：快速生成 Javadoc 文档</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12977-easy-javadoc' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12977-easy-javadoc</a></li></ul></li><li><p><span>JavaDoc</span></p><ul><li><span>描述：生成 Javadoc 文档</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7157-javadoc' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7157-javadoc</a></li></ul></li><li><p><span>Json2Pojo</span></p><ul><li><span>描述：根据 JSON 生成 POJO，根据 POJO 生成 JSON</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8533-json2pojo' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8533-json2pojo</a></li></ul></li><li><p><span>JUnitGenerator V2.0</span></p><ul><li><span>描述：自动生成单元测试</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/3064-junitgenerator-v2-0' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/3064-junitgenerator-v2-0</a></li></ul></li><li><p><span>Jindent - Source Code Formatter</span></p><ul><li><span>描述：根据自定义模板来生成 javadoc 注释</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8309-jindent--source-code-formatter' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8309-jindent--source-code-formatter</a></li></ul></li><li><p><span>MybatisX</span></p><ul><li><span>描述：MyBatis 增强插件，支持自动生成 entity、mapper、service 等常用操作的代码，优化体验</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10119-mybatisx' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10119-mybatisx</a></li></ul></li><li><p><span>MyBatisCodeHelperPro</span></p><ul><li><span>描述：MyBatis 增强插件，支持自动生成 entity、mapper、service 等常用操作的代码（收费）</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro</a></li></ul></li></ul><p>&nbsp;</p><h4 id='功能提效类'><span>功能提效类</span></h4><h5 id='源码阅读'><span>源码阅读</span></h5><ul><li><p><span>Call Graph</span></p><ul><li><span>描述：生成调用关系图，便于查看源码</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12304-call-graph' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12304-call-graph</a></li></ul></li><li><p><span>Jump to Line</span></p><ul><li><span>描述：支持跳转到任意行进行调试</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/14877-jump-to-line' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/14877-jump-to-line</a></li></ul></li><li><p><span>SequenceDiagram</span></p><ul><li><span>描述：自动生成方法调用时序图</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8286-sequencediagram' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8286-sequencediagram</a></li></ul></li><li><p><span>jclasslib Bytecode Viewer</span></p><ul><li><span>描述：字节码查看器</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9248-jclasslib-bytecode-viewer' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9248-jclasslib-bytecode-viewer</a></li></ul></li><li><p><span>BrowseWordAtCaret</span></p><ul><li><span>描述： 快速在相同单词间进行跳转</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/201-browsewordatcaret' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/201-browsewordatcaret</a></li></ul></li><li><p><span>CodeGlance</span></p><ul><li><span>描述：在编辑器右侧生成代码小地图，可以拖拽小地图光标快速定位代码，阅读行数很多的代码文件时非常实用。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7275-codeglance/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7275-codeglance/</a></li></ul></li></ul><p>&nbsp;</p><h5 id='代码规范'><span>代码规范</span></h5><ul><li><p><span>CheckStyle-IDEA</span></p><ul><li><span>描述：自动检查 Java 代码规范</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/1065-checkstyle-idea' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/1065-checkstyle-idea</a></li></ul></li><li><p><span>Alibaba Java Coding Guidelines</span></p><ul><li><span>描述：代码规范检查插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines</a></li></ul></li><li><p><span>SonarLint</span></p><ul><li><span>描述：帮助你发现和修复代码的错误和漏洞</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7973-sonarlint' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7973-sonarlint</a></li></ul></li><li><p><span>FindBugs-IDEA</span></p><ul><li><span>描述：帮你找出代码中潜藏的 Bug</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/3847-findbugs-idea' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/3847-findbugs-idea</a></li></ul></li><li><p><span>MetricsReloaded</span></p><ul><li><span>描述：代码复杂度分析</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/93?pr=idea' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/93?pr=idea</a></li></ul></li></ul><p>&nbsp;</p><h5 id='格式处理'><span>格式处理</span></h5><ul><li><p><span>CamelCase</span></p><ul><li><span>描述：快速字符串格式转换工具，如驼峰式</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7160-camelcase' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7160-camelcase</a></li></ul></li><li><p><span>Json Parser</span></p><ul><li><span>描述：验证和格式化 Json 字符串的工具</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10650-json-parser' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10650-json-parser</a></li></ul></li><li><p><span>Properties to YAML Converter</span></p><ul><li><span>描述：把 Properties 文件的格式转为 YAML 格式</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8000-properties-to-yaml-converter' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8000-properties-to-yaml-converter</a></li></ul></li><li><p><span>String Manipulation</span></p><ul><li><span>描述：字符串快捷处理</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/2162-string-manipulation' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/2162-string-manipulation</a></li></ul></li></ul><p>&nbsp;</p><h5 id='代码统计'><span>代码统计</span></h5><ul><li><p><span>WakaTime</span></p><ul><li><span>描述：代码统计和跟踪插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7425-wakatime' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7425-wakatime</a></li></ul></li><li><p><span>Statistic</span></p><ul><li><span>描述：代码统计</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/4509-statistic' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/4509-statistic</a></li></ul></li></ul><p>&nbsp;</p><h5 id='代码检索'><span>代码检索</span></h5><ul><li><p><span>OnlineSearch</span></p><ul><li><span>描述：选择文本后支持不同搜索引擎进行搜索</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8298-onlinesearch/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8298-onlinesearch/</a></li></ul></li><li><p><span>CodeSearch</span></p><ul><li><span>描述：快捷地打开搜索引擎进行搜索</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12578-codesearch' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12578-codesearch</a></li></ul></li></ul><p>&nbsp;</p><h5 id='其他-2'><span>其他</span></h5><ul><li><p><span>Leetcode Editor</span></p><ul><li><span>描述：在 IDEA 里刷算法题</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12132-leetcode-editor' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12132-leetcode-editor</a></li></ul></li><li><p><span>File Watchers</span></p><ul><li><span>描述：监听文件，当其发生变化时自动执行命令</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7177-file-watchers' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7177-file-watchers</a></li></ul></li><li><p><span>PlantUML integration</span></p><ul><li><span>描述：UML 建模工具，只需简单的代码就能画出复杂的 UML 类图</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7017-plantuml-integration' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7017-plantuml-integration</a></li></ul></li><li><p><span>Bytecode Editor</span></p><ul><li><span>描述：字节码编辑工具</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8461-bytecode-editor' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8461-bytecode-editor</a></li></ul></li><li><p><span>Alibaba Cloud Toolkit</span></p><ul><li><span>描述：阿里云工具集</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/11386-alibaba-cloud-toolkit' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/11386-alibaba-cloud-toolkit</a></li></ul></li><li><p><span>Tencent Cloud Toolkit</span></p><ul><li><span>描述：腾讯云工具集</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/15653-tencent-cloud-toolkit' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/15653-tencent-cloud-toolkit</a></li></ul></li><li><p><span>EduTools</span></p><ul><li><span>描述：面向教育者，允许创建、分享和加入练习</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10081-edutools' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10081-edutools</a></li></ul></li><li><p><span>IDE Features Trainer</span></p><ul><li><span>描述：IntelliJ IDEA 官方出的学习辅助插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8554-ide-features-trainer' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8554-ide-features-trainer</a></li></ul></li><li><p><span>JRebel Plugin</span></p><ul><li><span>描述：项目热更新，提高效率（可惜要收费）</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij</a></li></ul></li><li><p><span>Key Promoter X</span></p><ul><li><span>描述：快捷键提示插件。当你执行鼠标操作时，如果该操作可被快捷键代替，会给出提示，帮助你自然形成使用快捷键的习惯，告别死记硬背。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9792-key-promoter-x/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9792-key-promoter-x/</a></li></ul></li><li><p><span>Translation</span></p><ul><li><span>描述：翻译插件，鼠标选中文本，点击右键即可自动翻译成多国语言。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8579-translation/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8579-translation/</a></li></ul></li><li><p><span>idea_seat</span></p><ul><li><span>描述：自动提醒，防止你久坐不动</span></li><li><span>官网：</span><a href='https://github.com/s-unscrupulous/idea_seat' target='_blank' class='url'>https://github.com/s-unscrupulous/idea_seat</a></li></ul></li><li><p><span>RestfulTool</span></p><ul><li><span>描述：辅助 web 开发的工具集</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/14280-restfultool' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/14280-restfultool</a></li></ul></li><li><p><span>Multirun</span></p><ul><li><span>描述：同时启动多应用</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7248-multirun' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7248-multirun</a></li></ul></li></ul><p>&nbsp;</p><h4 id='扩展增强类'><span>扩展增强类</span></h4><ul><li><p><span>Free Mybatis Plugin</span></p><ul><li><span>描述：MyBatis 增强插件，支持 mapper =&gt; xml 的跳转、代码生成等功能</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8321-free-mybatis-plugin' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8321-free-mybatis-plugin</a></li></ul></li><li><p><span>MyBatis Log Plugin</span></p><ul><li><span>描述：MyBatis SQL 提取和格式化输出</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10065-mybatis-log-plugin' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10065-mybatis-log-plugin</a></li></ul></li><li><p><span>Maven Helper</span></p><ul><li><span>描述：Maven 辅助插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7179-maven-helper' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7179-maven-helper</a></li></ul></li><li><p><span>Gradle View</span></p><ul><li><span>描述：Gradle 项目管理工具的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7150-gradle-view' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7150-gradle-view</a></li></ul></li><li><p><span>Arthas Idea</span></p><ul><li><span>描述： Arthas 命令生成插件。Arthas 是阿里开源的 Java 在线诊断工具，该插件可以自动生成 Arthas 在线 Java 代码诊断命令，不用再到官网翻文档拼命令啦！</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/13581-arthas-idea/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/13581-arthas-idea/</a></li></ul></li><li><p><span>GitToolBox</span></p><ul><li><span>描述： Git 增强插件。在自带的 Git 功能之上，新增了查看 Git 状态、自动拉取代码、提交通知等功能。最好用的是可以查看到每一行代码的最近一次提交信息。</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7499-gittoolbox/' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7499-gittoolbox/</a></li></ul></li><li><p><span>BashSupport</span></p><ul><li><span>描述：支持 Bash 脚本文件的高亮和提示等</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/4230-bashsupport' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/4230-bashsupport</a></li></ul></li><li><p><span>Git Flow Integration</span></p><ul><li><span>描述：Git Flow 的图形界面操作</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7315-git-flow-integration' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7315-git-flow-integration</a></li></ul></li><li><p><span>Gitee</span></p><ul><li><span>描述：开源中国的码云插件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8383-gitee' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8383-gitee</a></li></ul></li><li><p><span>Drools</span></p><ul><li><span>描述：规则引擎的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/16871-drools' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/16871-drools</a></li></ul></li><li><p><span>EnvFile</span></p><ul><li><span>描述：对多环境配置文件的支持</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7861-envfile' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7861-envfile</a></li></ul></li><li><p><span>Kubernetes</span></p><ul><li><span>描述：容器管理的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10485-kubernetes' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10485-kubernetes</a></li></ul></li><li><p><span>Vue.js</span></p><ul><li><span>描述：Vue.js 前端框架的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9442-vue-js' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9442-vue-js</a></li></ul></li><li><p><span>Scala</span></p><ul><li><span>描述：Scala 语言的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/1347-scala' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/1347-scala</a></li></ul></li><li><p><span>Zookeeper</span></p><ul><li><span>描述：Zookeeper 中间件的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/7364-zookeeper' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/7364-zookeeper</a></li></ul></li><li><p><span>Jms messenger</span></p><ul><li><span>描述：对 Java 消息服务的扩展</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10949-jms-messenger' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10949-jms-messenger</a></li></ul></li><li><p><span>MapStruct Support</span></p><ul><li><span>描述：对 MapStruct 对象转换的支持</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10036-mapstruct-support' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10036-mapstruct-support</a></li></ul></li><li><p><span>Big Data Tools</span></p><ul><li><span>描述：提供了 HDFS 等大数据框架的工具集</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/12494-big-data-tools' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/12494-big-data-tools</a></li></ul></li><li><p><span>CSV</span></p><ul><li><span>描述：支持 CSV 文件的高亮和提示等</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/10037-csv' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/10037-csv</a></li></ul></li><li><p><span>Ideolog</span></p><ul><li><span>描述：识别和格式化 log 日志文件</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9746-ideolog' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9746-ideolog</a></li></ul></li><li><p><span>Toml</span></p><ul><li><span>描述：支持 toml 文件的高亮和提示等</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/8195-toml' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/8195-toml</a></li></ul></li><li><p><span>.env files support</span></p><ul><li><span>描述：支持 .env 文件的高亮和提示等</span></li><li><span>官网：</span><a href='https://plugins.jetbrains.com/plugin/9525--env-files-support' target='_blank' class='url'>https://plugins.jetbrains.com/plugin/9525--env-files-support</a></li></ul></li></ul><p>&nbsp;</p><h3 id='常用软件'><span>常用软件</span></h3><p><strong><span>以下部分软件可在【公众号：程序员鱼皮】回复【软件】获取~</span></strong></p><h5 id='开发相关'><span>开发相关</span></h5><ul><li><span>JetBrains IDEA：Java 集成开发环境，凭学生邮箱可申请免费使用（</span><a href='https://www.jetbrains.com/idea/' target='_blank' class='url'>https://www.jetbrains.com/idea/</a><span>）</span></li><li><span>Reset Jetbrains：你懂的</span></li><li><span>Visual Studio Code：插件化代码编辑器（</span><a href='https://code.visualstudio.com/' target='_blank' class='url'>https://code.visualstudio.com/</a><span>）</span></li><li><span>Sublime Text：轻量代码编辑器（</span><a href='https://www.sublimetext.com/' target='_blank' class='url'>https://www.sublimetext.com/</a><span>）</span></li><li><span>Navicat：数据库管理软件（</span><a href='https://www.navicat.com.cn/' target='_blank' class='url'>https://www.navicat.com.cn/</a><span>）</span></li><li><span>JMeter：Java 性能测试工具（</span><a href='https://jmeter.apache.org/' target='_blank' class='url'>https://jmeter.apache.org/</a><span>）</span></li><li><span>JVisual VM：Java 运行状态可视化工具（</span><a href='https://visualvm.github.io/' target='_blank' class='url'>https://visualvm.github.io/</a><span>）</span></li><li><span>XShell：SSH 连接软件（</span><a href='https://www.netsarang.com/zh/xshell/' target='_blank' class='url'>https://www.netsarang.com/zh/xshell/</a><span>）</span></li><li><span>XFtp：FTP 连接软件（</span><a href='https://www.netsarang.com/zh/xftp/' target='_blank' class='url'>https://www.netsarang.com/zh/xftp/</a><span>）</span></li><li><span>Redis Desktop Manager：Redis 可视化管理工具（</span><a href='https://github.com/uglide/RedisDesktopManager' target='_blank' class='url'>https://github.com/uglide/RedisDesktopManager</a><span>）</span></li><li><span>Postman：接口测试工具（</span><a href='https://www.postman.com/' target='_blank' class='url'>https://www.postman.com/</a><span>）</span></li><li><span>VMware：虚拟机软件（</span><a href='https://www.vmware.com/' target='_blank' class='url'>https://www.vmware.com/</a><span>）</span></li><li><span>Chocolatey：Windows 软件包管理器（</span><a href='https://chocolatey.org/' target='_blank' class='url'>https://chocolatey.org/</a><span>）</span></li><li><span>Typora：写文档软件（</span><a href='https://typora.io/' target='_blank' class='url'>https://typora.io/</a><span>）</span></li></ul><h5 id='效率'><span>效率</span></h5><ul><li><span>Ditto：强大的剪切板（</span><a href='https://ditto-cp.sourceforge.io/' target='_blank' class='url'>https://ditto-cp.sourceforge.io/</a><span>）</span></li><li><span>uTools：插件化的效率工具（</span><a href='https://u.tools/' target='_blank' class='url'>https://u.tools/</a><span>）</span></li><li><span>XMind：思维导图软件（</span><a href='https://www.xmind.cn/' target='_blank' class='url'>https://www.xmind.cn/</a><span>）</span></li><li><span>Qdir：Windows 多窗口管理器（</span><a href='https://q-dir.en.softonic.com/' target='_blank' class='url'>https://q-dir.en.softonic.com/</a><span>）</span></li></ul><p>&nbsp;</p><h3 id='项目源码50-套）'><span>项目源码（50 套）</span></h3><h4 id='电商秒杀'><span>电商秒杀</span></h4><ul><li><span>天猫整站 J2EE：</span><a href='https://how2j.cn/module/115.htm' target='_blank' class='url'>https://how2j.cn/module/115.htm</a></li><li><span>天猫整站 SSM：</span><a href='https://how2j.cn/module/134.html' target='_blank' class='url'>https://how2j.cn/module/134.html</a></li><li><span>天猫整站 Springboot：</span><a href='https://how2j.cn/module/156.html' target='_blank' class='url'>https://how2j.cn/module/156.html</a></li><li><span>mall-learning：</span><a href='https://github.com/macrozheng/mall-learningmall' target='_blank' class='url'>https://github.com/macrozheng/mall-learningmall</a><span>（学习教程，架构、业务、技术要点全方位解析）</span></li><li><span>SpringBoot 电商商城系统 Mall4j：</span><a href='https://github.com/gz-yami/mall4j' target='_blank' class='url'>https://github.com/gz-yami/mall4j</a></li><li><span>SpringBoot 完整电商系统 Mall：</span><a href='https://github.com/macrozheng/mall' target='_blank' class='url'>https://github.com/macrozheng/mall</a><span>（包括前台商城系统及后台管理系统，基于 SpringBoot+MyBatis 实现）</span></li><li><span>newbee-mall：</span><a href='https://github.com/newbee-ltd/newbee-mall' target='_blank' class='url'>https://github.com/newbee-ltd/newbee-mall</a><span> （一套电商系统，包括 newbee-mall 商城系统及 newbee-mall-admin 商城后台管理系统，基于 Spring Boot 2.X 及相关技术栈开发）</span></li><li><span>paascloud-master：</span><a href='https://github.com/paascloud/paascloud-master' target='_blank' class='url'>https://github.com/paascloud/paascloud-master</a><span>（基于 spring cloud + vue + oAuth2.0，前后端分离商城系统）</span></li><li><span>mall-swarm：</span><a href='https://github.com/macrozheng/mall-swarm' target='_blank' class='url'>https://github.com/macrozheng/mall-swarm</a><span>（一套微服务商城系统，采用了 Spring Cloud Greenwich、Spring Boot 2、MyBatis、Docker、Elasticsearch 等核心技术，同时提供了基于 Vue 的管理后台方便快速搭建系统）</span></li><li><span>onemall：</span><a href='https://github.com/YunaiV/onemall' target='_blank' class='url'>https://github.com/YunaiV/onemall</a><span>（mall 商城，基于微服务的思想，构建在 B2C 电商场景下的项目实战。核心技术栈，是 Spring Boot + Dubbo 。未来，会重构成 Spring Cloud Alibaba）</span></li><li><span>litemall：</span><a href='https://github.com/linlinjava/litemall' target='_blank' class='url'>https://github.com/linlinjava/litemall</a><span>（又一个小商城，litemall = Spring Boot 后端 + Vue 管理员前端 + 微信小程序用户前端 + Vue 用户移动端）</span></li><li><span>xmall：</span><a href='https://github.com/Exrick/xmall' target='_blank' class='url'>https://github.com/Exrick/xmall</a><span> （基于SOA架构的分布式电商购物商城 前后端分离 前台商城:Vue全家桶 后台管理系统）</span></li><li><span>miaosha：</span><a href='https://github.com/qiurunze123/miaosha' target='_blank' class='url'>https://github.com/qiurunze123/miaosha</a><span> （秒杀系统设计与实现）</span></li><li><span>SecKill：</span><a href='https://github.com/hfbin/Seckill' target='_blank' class='url'>https://github.com/hfbin/Seckill</a><span>（基于 SpringBoot+Mybatis+Redis+RabbitMQ 秒杀系统）</span></li></ul><p>&nbsp;</p><h4 id='博客论坛'><span>博客论坛</span></h4><ul><li><a href='https://github.com/langhsu/mblog'><span>Mblog</span></a><span>：开源 Java 博客系统</span></li><li><a href='https://github.com/halo-dev/halo'><span>halo</span></a><span>：一个优秀的开源博客发布应用</span></li><li><a href='https://github.com/Qbian61/forum-java'><span>forum-java</span></a><span>：一款用 Java（spring boot） 实现的现代化社区（论坛/问答/BBS/社交网络/博客）系统平台</span></li><li><a href='https://github.com/lenve/vhr'><span>vhr</span></a><span>：微人事是一个前后端分离的人力资源管理系统，项目采用 SpringBoot+Vue 开发。</span></li><li><a href='https://github.com/cloudfavorites/favorites-web'><span>favorites-web</span></a><span>:云收藏 Spring Boot 2.X 开源项目。云收藏是一个使用 Spring Boot 构建的开源网站，可以让用户在线随时随地收藏的一个网站，在网站上分类整理收藏的网站或者文章。</span></li><li><a href='https://github.com/codedrinker/community'><span>community</span></a><span>：码问，开源论坛、问答系统，现有功能提问、回复、通知、最新、最热、消除零回复功能。技术栈 Spring、Spring Boot、MyBatis、MySQL/H2、Bootstrap</span></li><li><a href='https://github.com/yourkevin/NiterForum'><span>NiterForum</span></a><span>：尼特社区-NiterForum-一个论坛/社区程序。后端Springboot/MyBatis/Maven/MySQL，前端Thymeleaf/Layui。可供初学者，学习、交流使用。</span></li><li><a href='https://github.com/lenve/VBlog'><span>VBlog</span></a><span>：V部落，Vue+SpringBoot实现的多用户博客管理平台!</span></li><li><a href='https://github.com/damoqiongqiu/NiceFish'><span>NiceFish</span></a><span>：SpringBoot/SpringCloud 前后端分离项目</span></li><li><a href='https://github.com/ZHENFENG13/My-Blog'><span>My-Blog</span></a><span>： My Blog 是由 SpringBoot + Mybatis + Thymeleaf 等技术实现的 Java 博客系统，页面美观、功能齐全、部署简单及完善的代码，一定会给使用者无与伦比的体验。</span></li><li><a href='https://github.com/ZHENFENG13/My-Blog-layui'><span>My-Blog-layui</span></a><span>：layui 版本的 My-Blog : A simple &amp; beautiful blogging system implemented with spring-boot &amp; layui &amp; thymeleaf &amp; mybatis My Blog 是由  SpringBoot + Layui + Mybatis + Thymeleaf 等技术实现的 Java  博客系统，页面美观、功能齐全、部署简单及完善的代码，一定会给使用者无与伦比的体验</span></li><li><a href='https://github.com/88250/symphony'><span>symphony</span></a><span>：Java 实现的现代化社区</span></li></ul><p>&nbsp;</p><h4 id='管理系统'><span>管理系统</span></h4><ul><li><a href='https://github.com/wxiaoqi/Spring-Cloud-Admin'><span>Spring-Cloud-Admin</span></a><span>：Cloud-Admin 是国内首个基于 Spring Cloud 微服务化开发平台，具有统一授权、认证后台管理系统，其中包含具备用户管理、资源权限管理、网关 API 管理等多个模块，支持多业务系统并行开发，可以作为后端服务的开发脚手架。代码简洁，架构清晰，适合学习和直接项目中使用。核心技术采用 Spring Boot2 以及 Spring Cloud Gateway 相关核心组件，前端采用 vue-element-admin 组件。</span></li><li><a href='https://github.com/tomsun28/bootshiro'><span>bootshiro</span></a><span>：基于 springboot+shiro+jwt 的资源无状态认证权限管理系统后端</span></li><li><a href='https://github.com/72crm/72crm-java'><span>悟空CRM</span></a><span>：基于jfinal+vue+ElementUI的前后端分离CRM系统</span></li><li><a href='https://github.com/elunez/eladmin'><span>EL-ADMIN</span></a><span>：基于 SpringBoot 的后台管理系统</span></li><li><a href='https://gitee.com/log4j/pig'><span>pig</span></a><span>：基于 Spring Boot 2.2、 Spring Cloud Hoxton &amp; Alibaba、 OAuth2 的 RBAC 权限管理系统。</span></li><li><a href='https://github.com/wuyouzhuguli/FEBS-Shiro'><span>FEBS-Shiro</span></a><span>：Spring Boot 2.1.3，Shiro1.4.0 &amp; Layui 2.5.4 权限管理系统。</span></li><li><a href='https://github.com/Heeexy/SpringBoot-Shiro-Vue'><span>Spring Boot-Shiro-Vue</span></a><span>：基于Spring Boot-Shiro-Vue 的权限管理</span></li><li><a href='https://github.com/ZeroWdd/studentmanager'><span>studentmanager</span></a><span>：基于springboot+mybatis学生管理系统</span></li><li><a href='https://github.com/jishenghua/jshERP'><span>jshERP</span></a><span>：华夏ERP基于SpringBoot框架和SaaS模式，立志为中小企业提供开源好用的ERP软件，目前专注进销存+财务功能。主要模块有零售管理、采购管理、销售管理、仓库管理、财务管理、报表查询、系统管理等。支持预付款、收入支出、仓库调拨、组装拆卸、订单等特色功能。拥有库存状况、出入库统计等报表。同时对角色和权限进行了细致全面控制，精确到每个按钮和菜单。</span></li><li><a href='https://github.com/misterchaos/HotelSystem'><span>HotelSystem</span></a><span>：酒店管理系统 Java,tomcat,mysql,servlet,jsp实现，没有使用任何框架</span></li></ul><p>&nbsp;</p><h4 id='开发平台'><span>开发平台</span></h4><ul><li><a href='https://github.com/2014shijina2014/open-capacity-platform'><span>open-capacity-platform</span></a><span>：微服务能力开发平台</span></li><li><a href='https://github.com/zhangdaiscott/jeecg-boot'><span>jeecg-boot</span></a><span>：JeecgBoot是一款基于BPM的低代码平台！前后端分离架构 SpringBoot 2.x，SpringCloud，Ant  Design&amp;Vue，Mybatis-plus，Shiro，JWT，支持微服务。强大的代码生成器让前后端代码一键生成，实现低代码开发！</span></li></ul><p>&nbsp;</p><h4 id='其他-3'><span>其他</span></h4><ul><li><a href='https://github.com/mindskip/xzs'><span>学之思在线考试系统</span></a><span>：一款 java + vue 的前后端分离的考试系统</span></li><li><a href='https://github.com/Jackson0714/PassJava-Platform'><span>PassJava-Platform</span></a><span>：一款面试刷题的 Spring Cloud 开源系统</span></li><li><a href='https://github.com/kekingcn/kkFileView'><span>kkFileView</span></a><span>：使用spring boot打造文件文档在线预览项目</span></li><li><a href='https://github.com/baomidou/dynamic-datasource-spring-boot-starter'><span>dynamic-datasource</span></a><span>：一个基于springboot的快速集成多数据源的启动器</span></li><li><a href='https://github.com/373675032/moti-cloud'><span>moti-cloud</span></a><span>：莫提网盘，基于 SpringBoot+MyBatis+ThymeLeaf+BootStrap，适合初学者</span></li><li><a href='https://github.com/qiurunze123/threadandjuc'><span>threadandjuc</span></a><span>：three-high-import 高可用\高可靠\高性能，三高多线程导入系统（该项目意义为理论贯通)</span></li><li><a href='https://github.com/proxyee-down-org/proxyee-down'><span>proxyee-down</span></a><span>：http下载工具，基于http代理，支持多连接分块下载</span></li><li><a href='https://github.com/sfturing/hosp_order'><span>hosp_order</span></a><span>：医院预约挂号系统，基于 SSM 框架</span></li><li><a href='https://how2j.cn/module/170.html'><span>趋势投资 SpringCloud</span></a></li><li><a href='https://how2j.cn/module/176.html'><span>DiyTomcat</span></a></li></ul><p>&nbsp;</p><h2 id='阶段-6java-高级'><span>阶段 6：Java 高级</span></h2><h3 id='目标-6'><span>目标</span></h3><p><span>不满足于能做，而是通过更 </span><strong><span>深入</span></strong><span> 和 </span><strong><span>广泛</span></strong><span> 的学习，实现高质量的代码和更优秀的架构，培养解决问题的能力。</span></p><p><span>已经到了这个阶段，建议除了看完成的教程外，平时多自主搜索信息去学习，积少成多。比如遇到了一个不了解的名词，可以去网上搜一下，感兴趣的话再进行下一步的学习。</span></p><p>&nbsp;</p><h3 id='🌖-并发编程21-天）'><span>🌖 并发编程（21 天）</span></h3><p><span>对 Java 后端开发程序员来说，懂得如何利用有限的系统资源来提高系统的性能是很重要的，也是大厂面试考察的重点，因此并发编程（尤其是 Java 并发包的使用）这块的知识很重要。</span></p><p><span>把它放到高级，是因为在学并发编程前，需要有一定的编程经验、了解一定的操作系统知识。</span></p><p>&nbsp;</p><h4 id='知识-22'><span>知识</span></h4><ul><li><span>线程和进程</span></li><li><span>线程状态</span></li><li><span>并行和并发</span></li><li><span>同步和异步</span></li><li><span>Synchronized</span></li><li><span>Volatile 关键字</span></li><li><span>Lock 锁</span></li><li><span>死锁</span></li><li><span>可重入锁</span></li><li><span>线程安全</span></li><li><span>线程池</span></li><li><span>JUC 的使用</span></li><li><span>AQS</span></li><li><span>Fork Join</span></li><li><span>CAS</span></li></ul><p>&nbsp;</p><h4 id='学习建议-24'><span>学习建议</span></h4><p><span>并发编程入门不难，依然是 </span><strong><span>先学会使用</span></strong><span> 基础的 Java 并发包， 再通过大量地实践和测试，了解一些原理，才能真正掌握何时使用、如何更合理地使用并发编程。而不是张口闭口多线程，上天入地高并发。</span></p><p>&nbsp;</p><h4 id='经典面试题-17'><span>经典面试题</span></h4><ol start='' ><li><span>volatile 关键字的作用</span></li><li><span>使用线程池有哪些好处？</span></li><li><span>线程池参数如何设置？</span></li><li><span>什么是线程安全问题，如何解决？</span></li><li><span>介绍 synchronized 的锁升级机制</span></li><li><span>CopyOnWriteArrayList 适用于哪种场景？</span></li></ol><p>&nbsp;</p><h4 id='资源-23'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐【尚硅谷】大厂必备技术之JUC并发编程2021最新版：</span><a href='https://www.bilibili.com/video/BV1Kw411Z7dF' target='_blank' class='url'>https://www.bilibili.com/video/BV1Kw411Z7dF</a><span>（特点是短、精、新）</span></li><li><span>黑马程序员全面深入学习Java并发编程：</span><a href='https://www.bilibili.com/video/BV16J411h7Rd' target='_blank' class='url'>https://www.bilibili.com/video/BV16J411h7Rd</a><span>（讲的很细、全面深入）</span></li></ul></li><li><p><span>书籍</span></p><ul><li><span>⭐《Java并发编程实战》（国外的经典）</span></li><li><span>⭐《Java 并发编程艺术》（国人写的，理论思想内容较多，有时间建议反复看）</span></li></ul></li><li><p><span>项目</span></p><ul><li><span>⭐ Java 并发知识点总结：</span><a href='https://github.com/CL0610/Java-concurrency' target='_blank' class='url'>https://github.com/CL0610/Java-concurrency</a></li></ul></li></ul><p>&nbsp;</p><h3 id='🌖-jvm30-天）'><span>🌖 JVM（30 天）</span></h3><p><span>想要深入理解 Java，探秘 Java 跨平台的奥秘，一定要了解 Java 底层的虚拟机技术。</span></p><p><span>了解虚拟机、掌握虚拟机性能调优方法，有助于你写出更高性能、资源占用更小的优质程序。</span></p><p><span>在学习 JVM 的过程中，也能学到很多精妙的设计，开拓思路。</span></p><p>&nbsp;</p><h4 id='知识-23'><span>知识</span></h4><ul><li><p><span>JVM 内存结构</span></p></li><li><p><span>JVM 生命周期</span></p></li><li><p><span>主流虚拟机</span></p></li><li><p><span>Java 代码执行流程</span></p></li><li><p><span>类加载</span></p><ul><li><span>类加载器</span></li><li><span>类加载过程</span></li><li><span>双亲委派机制</span></li></ul></li><li><p><span>垃圾回收</span></p><ul><li><span>垃圾回收器</span></li><li><span>垃圾回收策略</span></li><li><span>垃圾回收算法</span></li><li><span>StopTheWorld</span></li></ul></li><li><p><span>字节码</span></p></li><li><p><span>内存分配和回收</span></p></li><li><p><span>JVM 性能调优</span></p><ul><li><span>性能分析方法</span></li><li><span>常用工具</span></li><li><span>参数设置</span></li></ul></li><li><p><span>Java 探针</span></p></li><li><p><span>线上故障分析</span></p></li></ul><p>&nbsp;</p><h4 id='学习建议-25'><span>学习建议</span></h4><p><span>JVM 的知识略显枯燥，建议先看视频，有实操的地方一定要实操！自己多去分析。</span></p><p><span>第一遍不理解没有关系，可以再看书来巩固，想要真正学好，《深入理解 Java 虚拟机（第三版）》一定要读。</span></p><p><span>如果只是为了通过面试可以直接看更精简的视频，比如狂神的。</span></p><p>&nbsp;</p><h4 id='经典面试题-18'><span>经典面试题</span></h4><ol start='' ><li><span>介绍 JVM 的内存模型？</span></li><li><span>JVM 内存为什么要分代？</span></li><li><span>介绍一次完整的 GC 流程</span></li><li><span>介绍双亲委派模型，为什么需要它？</span></li></ol><p>&nbsp;</p><h4 id='资源-24'><span>资源</span></h4><ul><li><p><span>视频</span></p><ul><li><span>⭐ 尚硅谷宋红康 - JVM 全套教程详解：</span><a href='https://www.bilibili.com/video/BV1PJ411n7xZ' target='_blank' class='url'>https://www.bilibili.com/video/BV1PJ411n7xZ</a><span>（讲得相当全面！附有实操）</span></li><li><span>【狂神说Java】JVM快速入门篇：</span><a href='https://www.bilibili.com/video/BV1iJ411d7jS' target='_blank' class='url'>https://www.bilibili.com/video/BV1iJ411d7jS</a><span>（讲得有点浅，但都是面试重点，时间紧的小伙伴可以直接看这个）</span></li></ul></li><li><p><span>书籍</span></p><ul><li><span>⭐《深入理解 Java 虚拟机（第三版）》（有理论有实践，内容丰富，不可多得的 JVM 学习神书，就是有点废头发）</span></li></ul></li><li><p><span>项目</span></p><ul><li><span>⭐ Java 虚拟机底层原理知识总结：</span><a href='https://github.com/doocs/jvm' target='_blank' class='url'>https://github.com/doocs/jvm</a></li></ul></li><li><p><span>实战</span></p><ul><li><span>阿里云 JVM 实战：</span><a href='https://developer.aliyun.com/graph/java/point/64' target='_blank' class='url'>https://developer.aliyun.com/graph/java/point/64</a></li></ul></li><li><p><span>工具</span></p><ul><li><span>Arthas 开源 Java 诊断工具：</span><a href='https://github.com/alibaba/arthas' target='_blank' class='url'>https://github.com/alibaba/arthas</a></li></ul></li></ul><p>&nbsp;</p><h3 id='架构设计-1'><span>架构设计</span></h3><h4 id='🌖-分布式'><span>🌖 分布式</span></h4><ul><li><p><span>分布式理论</span></p><ul><li><span>CAP</span></li><li><span>BASE</span></li></ul></li><li><p><span>分布式缓存</span></p><ul><li><span>Redis</span></li><li><span>Memcached</span></li><li><span>Etcd</span></li></ul></li><li><p><span>一致性算法</span></p><ul><li><span>Raft</span></li><li><span>Paxos</span></li><li><span>一致性哈希</span></li></ul></li><li><p><span>分布式事务</span></p><ul><li><p><span>解决方案</span></p><ul><li><span>2PC</span></li><li><span>3PC</span></li><li><span>TCC</span></li><li><span>本地消息表</span></li><li><span>MQ 事务消息</span></li><li><span>最大努力通知</span></li></ul></li><li><p><span>LCN 分布式事务框架：</span><a href='https://github.com/codingapi/tx-lcn' target='_blank' class='url'>https://github.com/codingapi/tx-lcn</a></p></li></ul></li><li><p><span>分布式 id 生成</span></p><ul><li><span>Leaf 分布式 id 生成服务：</span><a href='https://github.com/Meituan-Dianping/Leaf' target='_blank' class='url'>https://github.com/Meituan-Dianping/Leaf</a></li></ul></li><li><p><span>分布式任务调度</span></p><ul><li><span>XXL-JOB 调度平台：</span><a href='https://www.xuxueli.com/xxl-job/' target='_blank' class='url'>https://www.xuxueli.com/xxl-job/</a></li><li><span>elastic-job：</span><a href='https://gitee.com/elasticjob/elastic-job' target='_blank' class='url'>https://gitee.com/elasticjob/elastic-job</a></li></ul></li><li><p><span>分布式服务调用</span></p><ul><li><span>trpc</span></li></ul></li><li><p><span>分布式存储</span></p><ul><li><span>HDFS</span></li><li><span>Ceph</span></li></ul></li><li><p><span>分布式数据库</span></p><ul><li><span>TiDB</span></li><li><span>OceanBase</span></li></ul></li><li><p><span>分布式文件系统</span></p><ul><li><span>HDFS</span></li></ul></li><li><p><span>分布式协调</span></p><ul><li><span>Zookeeper</span></li></ul></li><li><p><span>分布式监控</span></p><ul><li><span>Prometheus</span></li><li><span>Zabbix</span></li></ul></li><li><p><span>分布式消息队列</span></p><ul><li><span>RabbitMQ</span></li><li><span>Kafka</span></li><li><span>Apache Pulsar</span></li></ul></li><li><p><span>分布式日志收集</span></p><ul><li><span>Elastic Stack</span></li><li><span>Loki</span></li></ul></li><li><p><span>分布式搜索引擎</span></p><ul><li><span>Elasticsearch</span></li></ul></li><li><p><span>分布式链路追踪</span></p><ul><li><span>Apache SkyWalking</span></li></ul></li><li><p><span>分布式配置中心</span></p><ul><li><span>Apollo</span></li><li><span>Nacos</span></li></ul></li></ul><p>&nbsp;</p><h4 id='🌗-高可用'><span>🌗 高可用</span></h4><ul><li><span>限流</span></li><li><span>降级熔断</span></li><li><span>冷备</span></li><li><span>双机热备</span></li><li><span>同城双活</span></li><li><span>异地双活</span></li><li><span>异地多活</span></li><li><span>容灾备份</span></li></ul><p>&nbsp;</p><h4 id='🌗-高并发'><span>🌗 高并发</span></h4><ul><li><p><span>数据库</span></p><ul><li><p><span>分库分表</span></p><ul><li><span>MyCat 中间件</span></li><li><span>Apache ShardingSphere 中间件</span></li></ul></li><li><p><span>读写分离</span></p></li></ul></li><li><p><span>缓存</span></p><ul><li><span>缓存雪崩</span></li><li><span>缓存击穿</span></li><li><span>缓存穿透</span></li></ul></li><li><p><span>负载均衡</span></p><ul><li><span>负载均衡算法</span></li><li><span>软硬件负载均衡（2、3、4、7 层）</span></li></ul></li></ul><p>&nbsp;</p><h4 id='🌘-服务网格'><span>🌘 服务网格</span></h4><p><span>服务网格用来描述组成应用程序的微服务网络以及它们之间的交互。服务网格的规模和复杂性不断的增长，它将会变得越来越难以理解和管理，常见的需求包括服务发现、负载均衡、故障恢复、度量和监控等。</span></p><p>&nbsp;</p><h5 id='知识-24'><span>知识</span></h5><ul><li><p><span>Istio</span></p><ul><li><span>流量管理</span></li><li><span>安全性</span></li><li><span>可观测性</span></li></ul></li><li><p><span>Envoy（开源的边缘和服务代理）</span></p></li></ul><h5 id='资源-25'><span>资源</span></h5><ul><li><span>资料大全：</span><a href='https://www.servicemesher.com/awesome-servicemesh/' target='_blank' class='url'>https://www.servicemesher.com/awesome-servicemesh/</a></li><li><span>istio 官方文档：</span><a href='https://preliminary.istio.io/latest/zh' target='_blank' class='url'>https://preliminary.istio.io/latest/zh</a></li><li><span>istio 视频教程：</span><a href='https://www.bilibili.com/video/BV1Lf4y1x7j8' target='_blank' class='url'>https://www.bilibili.com/video/BV1Lf4y1x7j8</a></li><li><span>在线体验 istio：</span><a href='https://katacoda.com/courses/istio/' target='_blank' class='url'>https://katacoda.com/courses/istio/</a></li></ul><p>&nbsp;</p><h4 id='🌘-ddd-领域驱动设计'><span>🌘 DDD 领域驱动设计</span></h4><p><span>将数据、业务流程抽象成容易理解的领域模型，通过用代码实现领域模型，来组成完整的业务系统。</span></p><p>&nbsp;</p><h5 id='知识-25'><span>知识</span></h5><ul><li><p><span>DDD 的优势</span></p></li><li><p><span>DDD 的适用场景</span></p></li><li><p><span>DDD 核心概念</span></p><ul><li><span>领域模型分类：失血、贫血、充血、涨血</span></li><li><span>子域划分：核心域、通用域、支撑域</span></li><li><span>限界上下文</span></li><li><span>实体和值对象</span></li><li><span>聚合设计</span></li><li><span>领域事件</span></li></ul></li><li><p><span>DDD 实践</span></p></li></ul><h5 id='资源-26'><span>资源</span></h5><ul><li><span>DDD 入门：</span><a href='https://juejin.cn/post/7004002483601145863' target='_blank' class='url'>https://juejin.cn/post/7004002483601145863</a></li><li><span>DDD 编码实践：</span><a href='https://juejin.cn/post/6844903903104860174' target='_blank' class='url'>https://juejin.cn/post/6844903903104860174</a></li><li><span>DDD 实践教程：</span><a href='https://www.bilibili.com/video/BV1Y341167Xp' target='_blank' class='url'>https://www.bilibili.com/video/BV1Y341167Xp</a></li></ul><p>&nbsp;</p><h4 id='🌘-其他'><span>🌘 其他</span></h4><ul><li><span>Sidecar</span></li><li><span>Serverless</span></li><li><span>云原生</span></li></ul><p>&nbsp;</p><h4 id='学习建议-26'><span>学习建议</span></h4><p><span>架构设计的学习没有顶点，多看文章，思考每种设计的优缺点和适用场景，有机会的话在企业中实践即可。</span></p><p><span>还在学校、或者初入这行的同学切记，千万不要一味地去背诵架构设计的八股文。你可以背，但是这一块的知识只有结合具体的项目才有意义，所以要多做项目去实践设计的合理性，而不是什么设计都咔咔往系统里去怼。比如面试问到分布式事务，能结合自己项目中用分布式事务解决问题的经验去回答最好。</span></p><p>&nbsp;</p><h3 id='🌘-其他技术'><span>🌘 其他技术</span></h3><ul><li><span>热数据探测技术：京东 HotKey</span></li><li><span>数据库流水订阅：阿里 Canal</span></li><li><span>监控告警</span></li><li><span>应用安全</span></li><li><span>故障演练</span></li><li><span>流量回放</span></li></ul><p>&nbsp;</p><h2 id='阶段-7java-求职'><span>阶段 7：Java 求职</span></h2><h3 id='目标-7'><span>目标</span></h3><p><span>找到好工作</span></p><p>&nbsp;</p><h3 id='建议'><span>建议</span></h3><ol start='' ><li><span>尽早做规划，可以通过大厂招聘官网的岗位描述来了解岗位的要求</span></li><li><span>雕琢一份优秀的简历，推荐阅读：</span><a href='https://mp.weixin.qq.com/s/wfabzdpOPdq89faFFpZ4NA' target='_blank' class='url'>https://mp.weixin.qq.com/s/wfabzdpOPdq89faFFpZ4NA</a></li><li><span>多读面经，坚持刷算法</span></li><li><span>多参与面试，持续复盘总结</span></li></ol><p>&nbsp;</p><h3 id='资源-27'><span>资源</span></h3><h4 id='校招岗位'><span>校招岗位</span></h4><ul><li><span>⭐ 牛客求职校招版：</span><a href='https://www.nowcoder.com/recommend/campus' target='_blank' class='url'>https://www.nowcoder.com/recommend/campus</a></li><li><span>阿里 Java 开发：</span><a href='https://campus.alibaba.com/position.htm?refno=12699' target='_blank' class='url'>https://campus.alibaba.com/position.htm?refno=12699</a></li><li><span>腾讯后台开发：</span><a href='https://join.qq.com/post_detail.html?pid=1&amp;id=101&amp;tid=2' target='_blank' class='url'>https://join.qq.com/post_detail.html?pid=1&id=101&tid=2</a></li><li><span>腾讯全栈开发：</span><a href='https://join.qq.com/post_detail.html?pid=1&amp;id=137&amp;tid=2' target='_blank' class='url'>https://join.qq.com/post_detail.html?pid=1&id=137&tid=2</a></li><li><span>腾讯运营开发：</span><a href='https://join.qq.com/post_detail.html?pid=1&amp;id=105&amp;tid=2' target='_blank' class='url'>https://join.qq.com/post_detail.html?pid=1&id=105&tid=2</a></li><li><span>美团后端开发：</span><a href='https://campus.meituan.com/jobs?jobFamily=1&amp;jobId=4005&amp;jobType=1&amp;pageNo=2' target='_blank' class='url'>https://campus.meituan.com/jobs?jobFamily=1&jobId=4005&jobType=1&pageNo=2</a></li><li><span>华为软件开发：</span><a href='https://career.huawei.com/reccampportal/portal5/campus-recruitment-detail.html?jobId=176044' target='_blank' class='url'>https://career.huawei.com/reccampportal/portal5/campus-recruitment-detail.html?jobId=176044</a></li></ul><p>&nbsp;</p><h4 id='社招岗位'><span>社招岗位</span></h4><ul><li><span>⭐ 牛客求职社招版：</span><a href='https://www.nowcoder.com/recommend/fulltime' target='_blank' class='url'>https://www.nowcoder.com/recommend/fulltime</a></li><li><span>阿里社招：</span><a href='https://job.alibaba.com/zhaopin/positionList.htm' target='_blank' class='url'>https://job.alibaba.com/zhaopin/positionList.htm</a></li><li><span>腾讯社招：</span><a href='https://careers.tencent.com/search.html' target='_blank' class='url'>https://careers.tencent.com/search.html</a></li></ul><p>&nbsp;</p><h4 id='实习'><span>实习</span></h4><ul><li><span>⭐ 牛客实习广场：</span><a href='https://nowpick.nowcoder.com/w/intern/center' target='_blank' class='url'>https://nowpick.nowcoder.com/w/intern/center</a></li><li><span>实习僧：</span><a href='https://www.shixiseng.com/' target='_blank' class='url'>https://www.shixiseng.com/</a></li></ul><p>&nbsp;</p><h4 id='内推'><span>内推</span></h4><ul><li><span>牛客内推：</span><a href='https://www.nowcoder.com/discuss/referral/index' target='_blank' class='url'>https://www.nowcoder.com/discuss/referral/index</a></li></ul><p>&nbsp;</p><h4 id='鱼皮经历'><span>鱼皮经历</span></h4><ul><li><p><span>从 0 开始的编程学习进大厂经历</span></p><ul><li><span>⭐ 我学计算机的四年，共勉：</span><a href='https://mp.weixin.qq.com/s/Nc7Ee2UyrPg6hGseQUCzeg' target='_blank' class='url'>https://mp.weixin.qq.com/s/Nc7Ee2UyrPg6hGseQUCzeg</a></li></ul></li><li><p><span>实习经历</span></p><ul><li><span>⭐ 我的第一份实习：</span><a href='https://mp.weixin.qq.com/s/SwGiRzyTkCOOCUXfXPR1Pw' target='_blank' class='url'>https://mp.weixin.qq.com/s/SwGiRzyTkCOOCUXfXPR1Pw</a></li><li><span>⭐ 我的第二份实习，字节跳动：</span><a href='https://mp.weixin.qq.com/s/3q-YIfuZBjPjSnamNwOraw' target='_blank' class='url'>https://mp.weixin.qq.com/s/3q-YIfuZBjPjSnamNwOraw</a></li></ul></li></ul><p>&nbsp;</p><h4 id='知识总结'><span>知识总结</span></h4><ul><li><span>⭐ 牛客 Java 面试宝典：</span><a href='https://www.nowcoder.com/tutorial/94' target='_blank' class='url'>https://www.nowcoder.com/tutorial/94</a></li><li><span>⭐ JavaGuide：</span><a href='https://snailclimb.gitee.io/javaguide/#/' target='_blank' class='url'>https://snailclimb.gitee.io/javaguide/#/</a></li><li><span>⭐ CS-Notes：</span><a href='http://www.cyc2018.xyz/' target='_blank' class='url'>http://www.cyc2018.xyz/</a></li><li><span>阿里 Java 技术图谱：</span><a href='https://developer.aliyun.com/graph/java' target='_blank' class='url'>https://developer.aliyun.com/graph/java</a></li></ul><p>&nbsp;</p><h4 id='面经'><span>面经</span></h4><ul><li><span>⭐ 牛客面经：</span><a href='https://www.nowcoder.com/discuss/experience?tagId=639' target='_blank' class='url'>https://www.nowcoder.com/discuss/experience?tagId=639</a></li><li><span>秋招总结</span>&amp;<span>Java心得（双非硕士，已拿11+5家Offer）：</span><a href='https://www.nowcoder.com/discuss/327041' target='_blank' class='url'>https://www.nowcoder.com/discuss/327041</a></li><li><span>被疫情逼得gap year的完全菜鸡的春招之路。：</span><a href='https://www.nowcoder.com/discuss/427812' target='_blank' class='url'>https://www.nowcoder.com/discuss/427812</a></li><li><span>谨以此文纪念2019年春招：</span><a href='https://www.nowcoder.com/discuss/181212' target='_blank' class='url'>https://www.nowcoder.com/discuss/181212</a></li><li><span>2019秋招经验谈：</span><a href='https://www.nowcoder.com/discuss/122463' target='_blank' class='url'>https://www.nowcoder.com/discuss/122463</a></li><li><span>秋招心得：</span><a href='https://www.nowcoder.com/discuss/317888' target='_blank' class='url'>https://www.nowcoder.com/discuss/317888</a></li><li><span>非科班本科菜鸡投的337家(Java后台)：</span><a href='https://www.nowcoder.com/discuss/133333' target='_blank' class='url'>https://www.nowcoder.com/discuss/133333</a></li><li><span>2018 这一年：</span><a href='https://www.nowcoder.com/discuss/137593' target='_blank' class='url'>https://www.nowcoder.com/discuss/137593</a></li><li><span>双非的秋招，感谢牛客：</span><a href='https://www.nowcoder.com/discuss/142181' target='_blank' class='url'>https://www.nowcoder.com/discuss/142181</a></li><li><span>二本本科Java上岸(滴滴京东58)2019秋招心得+面经：</span><a href='https://www.nowcoder.com/discuss/333912' target='_blank' class='url'>https://www.nowcoder.com/discuss/333912</a></li><li><span>碎碎念流水账特别长 of 自己的 Java 秋招：</span><a href='https://www.nowcoder.com/discuss/354154' target='_blank' class='url'>https://www.nowcoder.com/discuss/354154</a></li><li><span>秋招之路：个人历程以及面经总结：</span><a href='https://www.nowcoder.com/discuss/344311' target='_blank' class='url'>https://www.nowcoder.com/discuss/344311</a></li><li><span>【秋招面经总结】菜逼的坎坷之路（JAVA后台研发）：</span><a href='https://www.nowcoder.com/discuss/352030' target='_blank' class='url'>https://www.nowcoder.com/discuss/352030</a></li><li><span>阿里11面+EMC+网易+美团面经：</span><a href='https://www.nowcoder.com/discuss/105302' target='_blank' class='url'>https://www.nowcoder.com/discuss/105302</a></li><li><span>2018秋招阿里巴巴java笔试试题：</span><a href='https://www.nowcoder.com/discuss/67379' target='_blank' class='url'>https://www.nowcoder.com/discuss/67379</a></li><li><span>我的秋招经验分享（已拿BAT头条网易）：</span><a href='https://www.nowcoder.com/discuss/117071' target='_blank' class='url'>https://www.nowcoder.com/discuss/117071</a></li><li><span>20届的阿里 头条 网易  滴滴 百度 小米等Java面经：</span><a href='https://www.nowcoder.com/discuss/68289' target='_blank' class='url'>https://www.nowcoder.com/discuss/68289</a></li><li><span>拿了5个offer，回馈牛友发一波面经（长文详细）：</span><a href='https://www.nowcoder.com/discuss/79051' target='_blank' class='url'>https://www.nowcoder.com/discuss/79051</a></li><li><span>【总结】零基础学习一年拿到BAT三家offer：</span><a href='https://www.nowcoder.com/discuss/188241' target='_blank' class='url'>https://www.nowcoder.com/discuss/188241</a></li><li><span>本科生秋招经验总结帖：</span><a href='https://www.nowcoder.com/discuss/296586' target='_blank' class='url'>https://www.nowcoder.com/discuss/296586</a></li><li><span>双非渣硕校招总结+Java面经（网易阿里百度等）：</span><a href='https://www.nowcoder.com/discuss/134850' target='_blank' class='url'>https://www.nowcoder.com/discuss/134850</a></li><li><span>2018秋招笔试科大讯飞java笔试试题：</span><a href='https://www.nowcoder.com/discuss/67684' target='_blank' class='url'>https://www.nowcoder.com/discuss/67684</a></li><li><span>头条后台研发面经（共三面）：</span><a href='https://www.nowcoder.com/discuss/94233' target='_blank' class='url'>https://www.nowcoder.com/discuss/94233</a></li><li><span>一点点小经验和几家Java面经：</span><a href='https://www.nowcoder.com/discuss/138434' target='_blank' class='url'>https://www.nowcoder.com/discuss/138434</a></li><li><span>感谢牛客网！发一波面经！阿里、网易游戏、京东等offer。：</span><a href='https://www.nowcoder.com/discuss/101712' target='_blank' class='url'>https://www.nowcoder.com/discuss/101712</a></li><li><span>非科班水硕的春招实习总结- Java 后台开发：</span><a href='https://www.nowcoder.com/discuss/186528' target='_blank' class='url'>https://www.nowcoder.com/discuss/186528</a></li><li><span>十面阿里，七面头条，六个Offer，春招结束：</span><a href='https://www.nowcoder.com/discuss/80156' target='_blank' class='url'>https://www.nowcoder.com/discuss/80156</a></li><li><span>成功上岸，最后一波回馈：</span><a href='https://www.nowcoder.com/discuss/176434' target='_blank' class='url'>https://www.nowcoder.com/discuss/176434</a></li><li><span>【Java后台开发面经】阿里|网易|头条|腾讯|华为：</span><a href='https://www.nowcoder.com/discuss/108655' target='_blank' class='url'>https://www.nowcoder.com/discuss/108655</a></li><li><span>三跨学生的面经（头条、拼多多、华为、vivo）：</span><a href='https://www.nowcoder.com/discuss/195640' target='_blank' class='url'>https://www.nowcoder.com/discuss/195640</a></li></ul><p>&nbsp;</p><h4 id='面试题解'><span>面试题解</span></h4><ul><li><span>⭐ 2021 最新 Java 笔试、面试题合集：</span><a href='https://pan.baidu.com/s/1DE4HAu-DS80n7VOaGpU_KQ' target='_blank' class='url'>https://pan.baidu.com/s/1DE4HAu-DS80n7VOaGpU_KQ</a><span>（密码：lkw1）</span></li><li><span>牛客网 Java开发校招面试考点汇总（附面试题和答案）：</span><a href='https://www.nowcoder.com/discuss/161991' target='_blank' class='url'>https://www.nowcoder.com/discuss/161991</a></li><li><span>50w字+的技术类校招面试题汇总（附答案+考点）：</span><a href='https://www.nowcoder.com/discuss/164726' target='_blank' class='url'>https://www.nowcoder.com/discuss/164726</a></li><li><span>硬件，软件（后端开发，算法，数据分析等）历年企业笔试真题汇总：</span><a href='https://www.nowcoder.com/discuss/212783' target='_blank' class='url'>https://www.nowcoder.com/discuss/212783</a></li></ul><p>&nbsp;</p><h4 id='视频'><span>视频</span></h4><ul><li><span>⭐ 尚硅谷 2021 逆袭版 Java 面试题第三季：</span><a href='https://www.bilibili.com/video/BV1Hy4y1B78T' target='_blank' class='url'>https://www.bilibili.com/video/BV1Hy4y1B78T</a></li><li><span>⭐ 阿里大佬透彻讲解 Java 面试 500 道必考题：</span><a href='https://www.bilibili.com/video/BV1yU4y1J7Bb' target='_blank' class='url'>https://www.bilibili.com/video/BV1yU4y1J7Bb</a></li></ul><p>&nbsp;</p><h2 id='阶段-8持续学习'><span>阶段 8：持续学习</span></h2><h3 id='目标-8'><span>目标</span></h3><p><span>持续追求技术的深度和广度，培养自己的 </span><strong><span>核心竞争力</span></strong><span> 和 </span><strong><span>不可替代性</span></strong><span> ，学无止境！</span></p><p>&nbsp;</p><h3 id='学习建议-27'><span>学习建议</span></h3><p><span>自主学习，自主搜索教程，多看书，多阅读技术博客，多实践。</span></p><p>&nbsp;</p><h3 id='学习方向'><span>学习方向</span></h3><h4 id='框架源码'><span>框架源码</span></h4><ul><li><span>Spring</span></li><li><span>SpringBoot</span></li><li><span>SpringMVC</span></li><li><span>MyBatis</span></li><li><span>Netty</span></li><li><span>Dubbo</span></li><li><span>SpringCloud</span></li></ul><p>&nbsp;</p><h4 id='计算机原理'><span>计算机原理</span></h4><ul><li><span>《算法导论》：</span><a href='https://www.bilibili.com/video/av48922404' target='_blank' class='url'>https://www.bilibili.com/video/av48922404</a></li><li><span>《现代操作系统》：</span><a href='https://www.bilibili.com/video/av9555596' target='_blank' class='url'>https://www.bilibili.com/video/av9555596</a></li><li><span>《深入理解计算机系统》：</span><a href='https://www.bilibili.com/video/av31289365' target='_blank' class='url'>https://www.bilibili.com/video/av31289365</a></li><li><span>《编译原理》： </span><a href='https://www.bilibili.com/video/av17649289' target='_blank' class='url'>https://www.bilibili.com/video/av17649289</a></li><li><span>《计算机网络：自顶向下方法》：</span><a href='https://www.bilibili.com/video/BV1JV411t7ow' target='_blank' class='url'>https://www.bilibili.com/video/BV1JV411t7ow</a></li><li><span>《计算机程序的构造和解释》：</span><a href='https://www.bilibili.com/video/av8515129' target='_blank' class='url'>https://www.bilibili.com/video/av8515129</a></li><li><span>《数据库系统概论》：</span><a href='https://www.bilibili.com/video/BV1G54y1d7ZK' target='_blank' class='url'>https://www.bilibili.com/video/BV1G54y1d7ZK</a></li></ul><p>&nbsp;</p><h4 id='数据库--中间件--分布式'><span>数据库 / 中间件 / 分布式</span></h4><ul><li><p><span>数据库</span></p><ul><li><span>MySQL</span></li><li><span>PostgreSQL</span></li></ul></li><li><p><span>缓存</span></p><ul><li><span>Redis</span></li></ul></li><li><p><span>队列</span></p><ul><li><span>Apache Kafka</span></li><li><span>Apache Pulsar</span></li></ul></li><li><p><span>搜索引擎</span></p><ul><li><p><span>Elastic Stack</span></p><ul><li><span>Elasticsearch</span></li><li><span>logstash</span></li><li><span>kibana</span></li><li><span>beats</span></li></ul></li></ul></li><li><p><span>容器</span></p><ul><li><span>Docker</span></li><li><span>K8S</span></li></ul></li></ul><p>&nbsp;</p><h4 id='解决方案'><span>解决方案</span></h4><ul><li><span>广告系统</span></li><li><span>电商系统</span></li><li><span>搜索系统</span></li><li><span>支付转账</span></li><li><span>游戏后台</span></li><li><span>即时通讯</span></li><li><span>社交系统</span></li><li><span>CMS 系统</span></li><li><span>ERP 系统</span></li><li><span>OA 系统</span></li><li><span>代码生成</span></li><li><span>权限管理</span></li><li><span>秒杀活动</span></li></ul><p>&nbsp;</p><h4 id='架构设计-2'><span>架构设计</span></h4><p><span>同阶段 6 架构设计部分</span></p><p>&nbsp;</p><h4 id='大数据'><span>大数据</span></h4><ul><li><span>5V 特点</span></li><li><span>Hadoop</span></li><li><span>HDFS</span></li><li><span>MapReduce</span></li><li><span>Spark</span></li><li><span>Flink</span></li><li><span>Storm</span></li><li><span>Hive</span></li><li><span>HBase</span></li><li><span>Druid</span></li><li><span>Kylin</span></li><li><span>Pig</span></li><li><span>Mahout</span></li></ul><p>&nbsp;</p><h4 id='前沿技术'><span>前沿技术</span></h4><ul><li><p><span>云原生：</span><a href='https://www.jianshu.com/p/a37baa7c3eff' target='_blank' class='url'>https://www.jianshu.com/p/a37baa7c3eff</a></p><ul><li><span>Quasar Framework：</span><a href='http://www.quasarchs.com/' target='_blank' class='url'>http://www.quasarchs.com/</a></li></ul></li><li><p><span>服务网格：</span><a href='https://www.redhat.com/zh/topics/microservices/what-is-a-service-mesh' target='_blank' class='url'>https://www.redhat.com/zh/topics/microservices/what-is-a-service-mesh</a></p><ul><li><span>istio：</span><a href='https://github.com/istio/istio' target='_blank' class='url'>https://github.com/istio/istio</a></li></ul></li><li><p><span>GraalVM：</span><a href='https://juejin.cn/post/6850418120570437646' target='_blank' class='url'>https://juejin.cn/post/6850418120570437646</a><span>（高性能的通用虚拟机）</span></p><ul><li><span>官网：</span><a href='https://www.graalvm.org/' target='_blank' class='url'>https://www.graalvm.org/</a></li></ul></li><li><p><span>ZGC：</span><a href='https://juejin.cn/post/6859276583656980493' target='_blank' class='url'>https://juejin.cn/post/6859276583656980493</a><span>（新一代垃圾回收器）</span></p><ul><li><span>官网：</span><a href='http://openjdk.java.net/projects/zgc/' target='_blank' class='url'>http://openjdk.java.net/projects/zgc/</a></li></ul></li></ul><p>&nbsp;</p><h3 id='自学-java-专题资源'><span>自学 Java 专题资源</span></h3><ul><li><span>⭐ GitHub Java 专区：</span><a href='https://github.com/topics/java' target='_blank' class='url'>https://github.com/topics/java</a></li><li><span>⭐ GitHub Java 合集：</span><a href='https://github.com/akullpp/awesome-java' target='_blank' class='url'>https://github.com/akullpp/awesome-java</a></li><li><span>StackOverflow：</span><a href='https://stackoverflow.com/questions/tagged/java' target='_blank' class='url'>https://stackoverflow.com/questions/tagged/java</a><span>（解决问题必备）</span></li><li><span>⭐ 掘金 Java 专区：</span><a href='https://juejin.cn/tag/Java' target='_blank' class='url'>https://juejin.cn/tag/Java</a></li><li><span>美团技术团队：</span><a href='https://tech.meituan.com/' target='_blank' class='url'>https://tech.meituan.com/</a></li><li><span>阿里技术团队：</span><a href='https://102.alibaba.com/tech/list/' target='_blank' class='url'>https://102.alibaba.com/tech/list/</a></li><li><span>有赞技术团队：</span><a href='https://tech.youzan.com/tag/back-end/' target='_blank' class='url'>https://tech.youzan.com/tag/back-end/</a></li></ul><p>&nbsp;</p><h2 id='附录'><span>附录</span></h2><h3 id='程序员重要能力'><span>程序员重要能力</span></h3><p><span>想成为大佬，就是要通过学习和积累，提升自己的各方面能力，比较抽象，共勉！</span></p><ol start='' ><li><p><span>团队协作能力</span></p></li><li><p><span>高效沟通能力</span></p></li><li><p><span>需求分析能力</span></p></li><li><p><span>架构设计能力</span></p></li><li><p><span>抽象复用能力</span></p></li><li><p><span>独立创造能力</span></p></li><li><p><span>问题解决能力</span></p></li><li><p><span>归纳总结能力</span></p></li><li><p><span>自主学习能力</span></p></li><li><p><span>工具利用能力</span></p></li><li><p><span>高效编码能力</span></p></li><li><p><span>信息检索能力</span></p></li><li><p><span>开源建设能力</span></p></li><li><p><span>源码阅读能力</span></p></li><li><p><span>自测审查能力</span></p></li><li><p><span>文档编写能力</span></p></li><li><p><span>知识表达能力</span></p></li><li><p><span>绘图描述能力</span></p></li><li><p><span>兴趣驱动（长期学习能力）</span></p></li><li><p><span>保持好奇心</span></p></li><li><p><span>其他（狗头）</span></p><ul><li><span>复制粘贴能力</span></li><li><span>打架能力</span></li><li><span>PPT 制作能力</span></li></ul></li></ol><p>&nbsp;</p><h3 id='编程误区'><span>编程误区</span></h3><ol start='' ><li><span>我不适合学编程？❌（兴趣比天赋更重要，不要怀疑自己）</span></li><li><span>忽视基础，急于求成 ❌（勿以浮沙筑高台）</span></li><li><span>数学、英语差，就学不好编程 ❌（开发工作基本不用高等数学，英语可以使用翻译软件、工作中提升）</span></li><li><span>编程时，刻意记忆代码 ❌（知道每行代码的意义，能看文档写出来就行）</span></li><li><span>每行代码都要追求完美 ❌（何为完美？每个人的定义不同）</span></li><li><span>用百度搜索、复制粘贴的都是菜鸡程序员 ❌（艹）</span></li><li><span>我做的项目太小了，就不整理了 ❌（自己的每个项目都要整理，可以记录自己的成长）</span></li><li><span>跟别人交流很麻烦，我更愿意自己写代码 ❌（1 + 1 &gt; 2，切勿闭门造车，不过也要找到合适的同学去交流）</span></li><li><span>做别人做过的项目没有意义 ❌（连别人做过的项目都做不出，还想造新轮子？）</span></li><li><span>遇到 Bug，想办法绕过而不是寻找解决方案 ❌（Bug 最能使人成长）</span></li><li><span>遇到问题，第一时间去问别人而非自己解决 ❌（建议阅读《提问的智慧》）</span></li><li><span>花了很多时间、看了很多书，就能学好编程 ❌（编程最忌讳纸上谈兵）</span></li><li><span>只向前学习，不整理学过的知识 ❌（建议每学完一个知识，都去回想、总结、写心得，这个时间的花费是值得的）</span></li><li><span>单元测试不重要 ❌（一棍打死）</span></li><li><span>写文档不重要 ❌（一棍打死）</span></li><li><span>和我无关的工作，就不需要了解 ❌（了解团队、同行是很重要的，全局视野）</span></li><li><span>收藏的资源从来不看，就不收藏了 ❌（万一以后用到了呢？）</span></li><li><span>不去考虑需求的价值，而是一味寻求解决方案 ❌（不要成为需求机器，要有自己的独立思考）</span></li></ol><p>&nbsp;</p><h3 id='高效法则'><span>高效法则</span></h3><ol start='' ><li><span>不要过分追求完美，完成比完美更重要。</span></li><li><span>有现成的代码，就不要自己写，避免重复劳动（学习除外）。</span></li><li><span>学会使用软件及快捷键来提升自己的编码效率。</span></li><li><span>做项目前，要先想清楚怎么做，做好充分的预研和设计。这样不仅便于后续的程序扩展，也能避免无意义的返工。</span></li><li><span>将大的目标进行拆解，做好计划，分清主次。不要因为觉得目标遥不可及而拖延，也不要盲目乐观而松懈。</span></li><li><span>养成好的作息习惯，找到自己适合工作的黄金时间。</span></li><li><span>记性不好，就多记录、多总结、定期复习。哪怕实在记不住，也可以借助文档、收藏夹软件来当自己的第二大脑。</span></li><li><span>积累属于自己的工具库，配合搜索软件实现随用随取。</span></li><li><span>多和其他同行交流或订阅技术推送，拓宽知识渠道，从而了解更多的工具和方法。有些东西你只要听说过，要用时也许就能节省大量查找时间。</span></li><li><span>找到让自己进入专注做事的状态的方法，比如戴上耳机、嚼口香糖等。</span></li><li><span>做事高效，离不开经验的积累，因此要多写代码、多做项目。</span></li></ol><p>&nbsp;</p><h3 id='常见问题'><span>常见问题</span></h3><ol start='' ><li><p><span>按照这份路线学习，每天要学多少个小时，总共要学多久？</span></p><p><span>回答：每个人学习能力不同，当然没有固定标准。我当时平均每天可以学习 6 个小时，寒暑假能保证 8 小时以上的学习，路线中的时长是我当时学习时长 * 1.5 倍的参考值。实话说，我的学习效率真的不高，对编程感兴趣，多学就好了。与其纠结这个时长，倒不妨多抽点时间，每天多学一点。</span></p></li><li><p><span>这份路线上推荐的资源，鱼皮都看完了么？</span></p><p><span>回答：我是特么神仙啊？怎么可能都看完了！这份路线的本质是以网上现有的、死板的 Java 大学习框架为基础，结合我自己实际学习的知识、经验和感悟给它注入灵魂，从而希望给大家带来更大的帮助和价值。路线中的资源都是利用我自己的资源检索能力和渠道，通过试看、反复对比和参考评价精选出来的，不是主观臆断、空穴来风。</span></p></li><li><p><span>我学到这份路线的哪个位置，可以找工作？</span></p><p><span>回答：这和你自己的领悟能力和教育背景有关。夸张点说，有些清华大学的同学，可能之前都没学过 Java，照样能找到大厂 Java 开发工作。学到同一阶段的同学，学习过程中的认真程度、积累总结数、做项目个数、基础学习的好坏不同，找到的工作肯定也不同。但一般情况下，想要进大厂，建议至少学完阶段 4 的微服务部分，然后去做一个完整的项目，用上之前学习的技术；不想进大厂的同学，学完第 3 阶段后，学下缓存和队列，一般也能找到 Java 开发的工作。</span></p></li><li><p><span>学完这份路线就能进大厂么？</span></p><p><span>回答：你先学完，再问这个问题。没有绝对进大厂的保证，但是相信我，把这份路线上的大部分知识学了，再做做项目，哪怕进不了大厂，你拿到的薪水也绝对比松散学习的同学高！</span></p></li><li><p><span>我可以相信你么？</span></p><p><span>回答：不要相信我，应该相信你自己。想进大厂，就不要怀疑自己的能力！</span></p></li></ol><p>&nbsp;</p><p>&nbsp;</p><h2 id='写在最后'><span>写在最后</span></h2><p><span>觉得看文字累的朋友，欢迎看下视频版，带大家导读一下：</span><a href='https://www.bilibili.com/video/BV1Qf4y1K7ff/' target='_blank' class='url'>https://www.bilibili.com/video/BV1Qf4y1K7ff/</a></p><p><span>以上就是鱼皮熬了几天大夜、结合个人经验、并且参考了大量网上的文章和评论总结而成的学习路线，真的是非常不容易，如果大家觉得满意请务必 </span><strong><span>三连</span></strong><span> 支持下。</span></p><p><span>我是鱼皮，持续分享编程干货的程序员，欢迎关注，下期再见~</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
