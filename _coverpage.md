@@ -4,7 +4,7 @@
 ### 笔记 | 感想 | 技术
 
 
-[blog](https://hyhydromechanics.github.io//#/)
+[blog](https://hyhydromechanics.github.io/Linux-Learning-Note/blog/#/)
 [GitHub](https://github.com/HyHydromechanics/)
 <!-- background image -->
 ![](./bg.png)
