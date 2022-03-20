@@ -14,7 +14,7 @@
 > [!NOTE|style:flat]
 __This Website is Hydromechanics' Linux learning note__
 
-> {!TIP]
+> [!TIP]
 > 
 > **This Website is based on Docsify**
 > 
