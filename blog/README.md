@@ -1,5 +1,3 @@
-
-
 <img  style="margin:auto;    width: 100%;" title="Hydromechanics" src="./assets/images/title.png">
 <p align="center">
   <a href="https://github.com/HyHydromechanics" target="_blank">
@@ -14,15 +12,20 @@
 </p>
 
 > [!NOTE|style:flat]
-> __本站为hydromechanics的私人博客, 会发布本人*感兴趣的* 所有话题.__
+__This Website is Hydromechanics' Linux learning note__
 
-> 其中包括且不限于:
->  - **编程(Python,Java...)**
->  - **编程(资源分享)**
->  - **工具**
->  - **技术文章**
->  - **数学**
->  - **Galgame**
->  - ...
+> {!TIP]
+> 
+> **This Website is based on Docsify**
+> 
+> - Incoluding 3 main Units and 19 Chapters
+> - **For thr 3 main Units, they are the Basic,Practical operation, and Advanced**
+> - **For the Basic Unit, I'll teach you about how to start that from install Linux, and the basic structure of Linux**
+> - **In practical operation, I'll study about the Xshell XFtp, Vi and Vim, some useful commands, the dynnnamic task assignment, process management, etc**
+> - **When it comes to the advanced, I'll not only focuse on the Book, while find some tutorial on the internet to learn about the log management, kernel upgrade, visualization, intrusion detection, etc**
 
-__无盈利目的, 且会保持*持续更新*__
+> [!ATTENTION] 
+> 
+> The More detailed is listed in the mindmap below
+
+<iframe src="https://www.zhixi.com/view/be154c0b" width="1980" height="1200"> </iframe>
