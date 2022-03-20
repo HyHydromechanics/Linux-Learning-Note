@@ -2,8 +2,8 @@
 
 - Basic
   - [Introduction](1.1/1.1.md)
-  - [Basic]()
-  - [Install]
+  - [Basic](1.3/1.3.md)
+  - [Install]()
 
 - Operation
 
