@@ -3,7 +3,9 @@
 - Basic
   - [Introduction](1.1/1.1.md)
   - [Basic](1.2/1.2.md)
-  - [Install](1.3/1.3.md)
+  - [Set up VMware](1.3/1.3.md)
+  - [Set up Linux](1.3/install_Linux.md)
+  - [Start Linux](1.4/1.4.md)
 
 - Operation
 
