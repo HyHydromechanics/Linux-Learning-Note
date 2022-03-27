@@ -8,7 +8,8 @@
   - [Start Linux](1.4/1.4.md)
 
 - Operation
-
+  - [Directory Tree](2.1/2.1.md)
+  - [Open, shut down, users](2.2/2.2.md)
   
 - Advanced
 
