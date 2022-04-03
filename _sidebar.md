@@ -11,6 +11,7 @@
   - [Directory Tree](2.1/2.1.md)
   - [Open, shut down, users](2.2/2.2.md)
   - [Operation Command](2.3/2.3.md)
+  - [Internet Config](2.4/2.4.md)
 - Advanced
 
 
